@@ -1,3 +1,4 @@
 # computer 1
 cd d:
-cd D:/chris/Documents/UofC/MEng Soft/fall/ENSF 614/repo/ENSF614/assignments/template
+cd "D:/chris/Documents/UofC/MEng Soft/fall/ENSF 614/repo/ENSF614/assignments/template"
+g++ -Wall main.cpp -o main.exe
