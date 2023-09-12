@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-void time_convert(int ms_time, int *minutes_ptr, double *seconds_ptr);
+void time_convert(int *ms_time, int* minutes_ptr, double* seconds_ptr);
 /*
  * Converts time in milliseconds to time in minutes and seconds.
  * For example, converts 123400 ms to 2 minutes and 3.4 seconds.
@@ -20,27 +20,26 @@ void time_convert(int ms_time, int *minutes_ptr, double *seconds_ptr);
  *    ms_time ms.
  */
 
-int main(void)
-{
-  int millisec;
-  int minutes;
-  double seconds;
-    
-  cout << "Enter a time interval as an integer number of milliseconds: ";
-  
- // printf("Enter a time interval as an integer number of milliseconds: ");
-  cin >> millisec;
-  
-  if (!cin) {
-    cout << "Unable to convert your input to an int.\n";
-    exit(1);
-  }
-  
-  cout << "Doing conversion for input of " <<  millisec <<" milliseconds ... \n", millisec;
+int main(void) {
+    int millisec;
+    int minutes;
+    double seconds;
 
-  /* MAKE A CALL TO time_convert HERE. */
-  cout << "That is equivalent to " << minutes << " minute(s) and " << seconds << " second(s).\n";
-  return 0;
+    cout << "Enter a time interval as an integer number of milliseconds: ";
+    cin >> millisec;
+
+    if (!cin) {
+        cout << "Unable to convert your input to an int.\n";
+        exit(1);
+    }
+
+    cout << "Doing conversion for input of " << millisec << " milliseconds ... \n", millisec;
+    time_convert(&millisec, &minutes, &seconds);
+    cout << "That is equivalent to " << minutes << " minute(s) and " << seconds << " second(s).\n";
+    return 0;
 }
 
-/* PUT YOUR FUNCTION DEFINITION FOR time_convert HERE. */
+void time_convert(int *ms_time, int *minutes_ptr, double *seconds_ptr) {
+    *minutes_ptr = *ms_time / (1000 * 60);
+    *seconds_ptr = (double) (*ms_time % (1000 * 60)) / 1000;
+}
