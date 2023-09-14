@@ -1,8 +1,8 @@
 /*
- *  lab1exe_B.cpp
- *  ENSF 614 Lab 1, exercise B
- *  Created by Mahmood Moussavi
+ *  Filename: lab1exe_B.cpp
+ *  Assignment: Lab 1 rxercise B
  *  Completed by: Christian Valdez
+ *  Submission date: Sep 20, 2023
  */
 
 #include <iostream>
@@ -53,7 +53,7 @@ void create_table(double v) {
     cout << "Angle (deg)" << "\t t (sec)" << "\t d (m)" << endl;
     cout << fixed << setprecision(6);
 
-    while (angleDeg < 15) {
+    while (angleDeg < 95) {
         angleRad = degree_to_radian(angleDeg);
         t = Projectile_travel_time(G, v);
         d = Projectile_travel_distance(G, v);
@@ -64,7 +64,7 @@ void create_table(double v) {
 }
 
 double degree_to_radian(double d) {
-    return angleDeg * (PI/180);
+    return angleDeg * (PI / 180);
 }
 
 double Projectile_travel_time(double a, double v) {

@@ -1,13 +1,14 @@
 /*
- *  lab1exe_E.cpp
- *  ENSF 619 Lab 1 Exercise E1
- *
+ *  Filename: lab1exe_E.cpp
+ *  Assignment: Lab 1 rxercise E
+ *  Completed by: Christian Valdez
+ *  Submission date: Sep 20, 2023
  */
 
 #include <iostream>
 using namespace std;
 
-void time_convert(int *ms_time, int* minutes_ptr, double* seconds_ptr);
+void time_convert(int ms_time, int* minutes_ptr, double* seconds_ptr);
 /*
  * Converts time in milliseconds to time in minutes and seconds.
  * For example, converts 123400 ms to 2 minutes and 3.4 seconds.
@@ -34,12 +35,14 @@ int main(void) {
     }
 
     cout << "Doing conversion for input of " << millisec << " milliseconds ... \n", millisec;
-    time_convert(&millisec, &minutes, &seconds);
+    time_convert(millisec, &minutes, &seconds);
     cout << "That is equivalent to " << minutes << " minute(s) and " << seconds << " second(s).\n";
     return 0;
 }
 
-void time_convert(int *ms_time, int *minutes_ptr, double *seconds_ptr) {
-    *minutes_ptr = *ms_time / (1000 * 60);
-    *seconds_ptr = (double) (*ms_time % (1000 * 60)) / 1000;
+void time_convert(int ms_time, int* minutes_ptr, double* seconds_ptr) {
+    if (ms_time >= 0) {
+        *minutes_ptr = ms_time / (1000 * 60);
+        *seconds_ptr = (double)(ms_time % (1000 * 60)) / 1000;
+    }
 }
