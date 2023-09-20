@@ -3,7 +3,7 @@
  *  ENSF 614 Lab 2 Exercise B
  */
 
-int my_strlen(const char *s);
+int my_strlen(const char* s);
 /*  Duplicates strlen from <cstring>, except return type is int.
  *  REQUIRES
  *     s points to the beginning of a string.
@@ -12,7 +12,7 @@ int my_strlen(const char *s);
  *     terminating null.
  */
 
-void my_strncat(char *dest, const char *source, int);
+void my_strncat(char* dest, const char* source, int);
 /*  Duplicates strncat from <cstring>, except return type is void.
  */
 
@@ -25,69 +25,69 @@ int main(void)
     char str1[7] = "banana";
     const char str2[] = "-tacit";
     const char* str3 = "-toe";
-    
+
     /* point 1 */
     char str5[] = "ticket";
-    char my_string[100]="";
+    char my_string[100] = "";
     int bytes;
     int length;
-    
+
     /* using strlen libarary function */
-    length = (int) strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 1: my_string length is " << length;
-  
+
     /* using sizeof operator */
-    bytes = sizeof (my_string);
+    bytes = sizeof(my_string);
     cout << "\nLine 2: my_string size is " << bytes << " bytes.";
-   
+
     /* using strcpy libarary function */
-    strcpy(my_string, str1);
+    strcpy_s(my_string, str1);
     cout << "\nLine 3: my_string contains: " << my_string;
-   
-    length = (int) strlen(my_string);
+
+    length = (int)strlen(my_string);
     cout << "\nLine 4: my_string length is " << length << ".";
-   
+
     my_string[0] = '\0';
     cout << "\nLine 5: my_string contains:\"" << my_string << "\"";
-  
-    length = (int) strlen(my_string);
-    cout << "\nLine 6: my_string length is " <<  length << ".";
-   
-    bytes = sizeof (my_string);
+
+    length = (int)strlen(my_string);
+    cout << "\nLine 6: my_string length is " << length << ".";
+
+    bytes = sizeof(my_string);
     cout << "\nLine 7: my_string size is still " << bytes << " bytes.";
- 
+
     /* strncat append the first 3 characters of str5 to the end of my_string */
-    strncat(my_string, str5, 3);
+    strncat_s(my_string, str5, 3);
     cout << "\nLine 8: my_string contains:\"" << my_string << "\"";
-  
-    length = (int) strlen(my_string);
+
+    length = (int)strlen(my_string);
     cout << "\nLine 9: my_string length is " << length << ".";
-   
-    strncat(my_string, str2,  4);
+
+    strncat_s(my_string, str2, 4);
     cout << "\nLine 10: my_string contains:\"" << my_string << "\"";
-    
+
     /* strncat append ONLY up ot '\0' character from str3 -- not 6 characters */
-    strncat(my_string, str3, 6);
+    strncat_s(my_string, str3, 6);
     cout << "\nLine 11: my_string contains:\"" << my_string << "\"";
-   
-    length = (int) strlen(my_string);
+
+    length = (int)strlen(my_string);
     cout << "\nLine 12; my_string has " << length << " characters.";
 
     cout << "\n\nUsing strcmp - C library function: ";
-    
+
     cout << "\n\"ABCD\" is less than \"ABCDE\" ... strcmp returns: " <<
-    strcmp("ABCD", "ABCDE");
+        strcmp("ABCD", "ABCDE");
 
     cout << "\n\"ABCD\" is less than \"ABND\" ... strcmp returns: " <<
-    strcmp("ABCD", "ABND");
-    
+        strcmp("ABCD", "ABND");
+
     cout << "\n\"ABCD\" is equal than \"ABCD\" ... strcmp returns: " <<
-    strcmp("ABCD", "ABCD");
- 
+        strcmp("ABCD", "ABCD");
+
     cout << "\n\"ABCD\" is less than \"ABCd\" ... strcmp returns: " <<
-    strcmp("ABCD", "ABCd");
+        strcmp("ABCD", "ABCd");
 
     cout << "\n\"Orange\" is greater than \"Apple\" ... strcmp returns: " <<
-    strcmp("Orange", "Apple") << endl;
+        strcmp("Orange", "Apple") << endl;
     return 0;
 }

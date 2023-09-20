@@ -1,93 +1,79 @@
 /*
- *  lab2exe_B.cpp
- *  ENSF 614 Lab 2 Exercise B
+ *
+ * lab2exe_A.cpp
+ * ENSF 614 Lab 2 - Execise A
  */
+ /********************************************************************
+  One objective of this program is to use sizeof operator to find the number of
+  bytes of memory alloacted for simple varibles, pointers, and arrays.
 
-int my_strlen(const char* s);
-/*  Duplicates strlen from <cstring>, except return type is int.
- *  REQUIRES
- *     s points to the beginning of a string.
- *  PROMISES
- *     Returns the number of chars in the string, not including the
- *     terminating null.
- */
+  The second objective is is to demonstrate how array notations in a function
+  argument is still treated as a pointer.
 
-void my_strncat(char* dest, const char* source, int);
-/*  Duplicates strncat from <cstring>, except return type is void.
- */
-
+  ********************************************************************/
 #include <iostream>
-#include <cstring>
 using namespace std;
+
+void try_to_change(double* dest);
+void try_to_copy(double dest[], double source[]);
+double add_them(double a[5]);
 
 int main(void)
 {
-    char str1[7] = "banana";
-    const char str2[] = "-tacit";
-    const char* str3 = "-toe";
+    double sum = 0;
+    double x[4];
+    double y[] = { 2.3, 1.2, 2.0, 4.0 };
+    cout << " sizeof(double) is " << (int)sizeof(double) << " bytes.\n";
+    cout << " size of x in main is: " << (int)sizeof(x) << " bytes.\n";
+    cout << " y has " << (int)(sizeof(y) / sizeof(double)) << " elements and its size is: " << (int)sizeof(y) << " bytes.\n";
 
-    /* point 1 */
-    char str5[] = "ticket";
-    char my_string[100] = "";
-    int bytes;
-    int length;
+    /* Point one */
 
-    /* using strlen libarary function */
-    length = (int)strlen(my_string);
-    cout << "\nLine 1: my_string length is " << length;
+    try_to_copy(x, y);
 
-    /* using sizeof operator */
-    bytes = sizeof(my_string);
-    cout << "\nLine 2: my_string size is " << bytes << " bytes.";
+    try_to_change(x);
 
-    /* using strcpy libarary function */
-    strcpy_s(my_string, str1);
-    cout << "\nLine 3: my_string contains: " << my_string;
 
-    length = (int)strlen(my_string);
-    cout << "\nLine 4: my_string length is " << length << ".";
+    cout << "addres of y 1 = " << &y[1] << endl;
+    sum = add_them(&y[1]);
 
-    my_string[0] = '\0';
-    cout << "\nLine 5: my_string contains:\"" << my_string << "\"";
+    cout << "\n sum of values in y[1], y[2] and y[3] is: " << sum << endl;
 
-    length = (int)strlen(my_string);
-    cout << "\nLine 6: my_string length is " << length << ".";
-
-    bytes = sizeof(my_string);
-    cout << "\nLine 7: my_string size is still " << bytes << " bytes.";
-
-    /* strncat append the first 3 characters of str5 to the end of my_string */
-    strncat_s(my_string, str5, 3);
-    cout << "\nLine 8: my_string contains:\"" << my_string << "\"";
-
-    length = (int)strlen(my_string);
-    cout << "\nLine 9: my_string length is " << length << ".";
-
-    strncat_s(my_string, str2, 4);
-    cout << "\nLine 10: my_string contains:\"" << my_string << "\"";
-
-    /* strncat append ONLY up ot '\0' character from str3 -- not 6 characters */
-    strncat_s(my_string, str3, 6);
-    cout << "\nLine 11: my_string contains:\"" << my_string << "\"";
-
-    length = (int)strlen(my_string);
-    cout << "\nLine 12; my_string has " << length << " characters.";
-
-    cout << "\n\nUsing strcmp - C library function: ";
-
-    cout << "\n\"ABCD\" is less than \"ABCDE\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCDE");
-
-    cout << "\n\"ABCD\" is less than \"ABND\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABND");
-
-    cout << "\n\"ABCD\" is equal than \"ABCD\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCD");
-
-    cout << "\n\"ABCD\" is less than \"ABCd\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCd");
-
-    cout << "\n\"Orange\" is greater than \"Apple\" ... strcmp returns: " <<
-        strcmp("Orange", "Apple") << endl;
     return 0;
+}
+
+
+void try_to_copy(double dest[], double source[])
+{
+    dest = source;
+    cout << "dest = " << dest << endl;
+    cout << "source = " << source << endl;
+
+    /* point two*/
+
+    return;
+}
+
+void try_to_change(double* dest)
+{
+    dest[3] = 49.0;
+
+    /* point three*/
+    cout << "\n sizeof(dest) in try_to_change is " << (int)sizeof(dest) << " bytes.\n";
+
+
+    return;
+}
+
+
+double add_them(double arg[5])
+{
+    cout << "arg 5 = " << arg << endl;
+    *arg = -8.25;
+
+    /* point four */
+    cout << "\n sizeof(arg) in add_them is " << (int)sizeof(arg) << " bytes.\n";
+    cout << "\n Incorrect array size computation: add_them says arg has " << (int)(sizeof(arg) / sizeof(double)) << " element.\n";
+
+    return arg[0] + arg[1] + arg[2];
 }
