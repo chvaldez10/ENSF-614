@@ -129,20 +129,14 @@ void my_strncat(char* dest, const char* source, int n) {
 }
 
 int my_strcmp(const char* str1, const char* str2) {
-    int str1_count=0, str2_count=0;
-    int str_diff;
+    int str_diff = 0;
 
-    while (*str1 != '\0') {
-        str1_count += (int)*str1;
+    while (*str1 != '\0' && (*str1 == *str2)) {
         str1++;
-    }
-
-    while (*str2 != '\0') {
-        str2_count += (int)*str2;
         str2++;
     }
 
-    str_diff = str1_count - str2_count;
+    str_diff = (int) *str1 - (int) *str2;
 
     return str_diff;
 }
