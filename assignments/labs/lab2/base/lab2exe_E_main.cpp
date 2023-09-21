@@ -53,7 +53,7 @@ int main(void)
 double read_double_only(void)
 {
   double value_read;
-  // int char_code;
+  int char_code;
  
   if (!(cin >> value_read)) {
     cout << "Error trying to read in a double.  Program terminated.\n";
