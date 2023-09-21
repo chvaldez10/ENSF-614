@@ -12,7 +12,7 @@ int my_strlen(const char* s);
  *     terminating null.
  */
 
-void my_strncat(char* dest, const char* source, int n);
+void my_strncat(char* dest, const char* source, int);
 /*  Duplicates strncat from <cstring>, except return type is void.
  */
 
@@ -33,7 +33,7 @@ int main(void)
     int length;
 
     /* using strlen libarary function */
-    length = my_strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 1: my_string length is " << length;
 
     /* using sizeof operator */
@@ -44,33 +44,33 @@ int main(void)
     strcpy_s(my_string, str1);
     cout << "\nLine 3: my_string contains: " << my_string;
 
-    length = my_strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 4: my_string length is " << length << ".";
 
     my_string[0] = '\0';
     cout << "\nLine 5: my_string contains:\"" << my_string << "\"";
 
-    length = my_strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 6: my_string length is " << length << ".";
 
     bytes = sizeof(my_string);
     cout << "\nLine 7: my_string size is still " << bytes << " bytes.";
 
     /* strncat append the first 3 characters of str5 to the end of my_string */
-    my_strncat(my_string, str5, 3);
+    strncat_s(my_string, str5, 3);
     cout << "\nLine 8: my_string contains:\"" << my_string << "\"";
 
-    length = my_strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 9: my_string length is " << length << ".";
 
-    my_strncat(my_string, str2, 4);
+    strncat_s(my_string, str2, 4);
     cout << "\nLine 10: my_string contains:\"" << my_string << "\"";
 
     /* strncat append ONLY up ot '\0' character from str3 -- not 6 characters */
-    my_strncat(my_string, str3, 6);
+    strncat_s(my_string, str3, 6);
     cout << "\nLine 11: my_string contains:\"" << my_string << "\"";
 
-    length = my_strlen(my_string);
+    length = (int)strlen(my_string);
     cout << "\nLine 12; my_string has " << length << " characters.";
 
     cout << "\n\nUsing strcmp - C library function: ";
@@ -89,36 +89,5 @@ int main(void)
 
     cout << "\n\"Orange\" is greater than \"Apple\" ... strcmp returns: " <<
         strcmp("Orange", "Apple") << endl;
-
     return 0;
-}
-
-int my_strlen(const char* s) {
-    int counter = 0;
-
-    while (*s != '\0') {
-        counter++;
-        s++;
-    }
-
-    return counter;
-}
-
-void my_strncat(char* dest, const char* source, int n) {
-    if (n < 0) return;  // Return immediately if n is negative.
-
-    while (*dest != '\0') {
-        dest++;
-    }
-
-    int src_counter = 0;
-
-    while (*source != '\0' && src_counter < n) {
-        *dest = *source;
-        dest++;
-        source++;
-        src_counter++;
-    }
-
-    *dest = '\0';
 }
