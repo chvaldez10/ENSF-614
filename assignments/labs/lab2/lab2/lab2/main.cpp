@@ -12,9 +12,11 @@ int my_strlen(const char* s);
  *     terminating null.
  */
 
-void my_strncat(char* dest, const char* source, int n);
+void my_strncat(char* dest, const char* source, int n); // added n
 /*  Duplicates strncat from <cstring>, except return type is void.
  */
+
+int my_strcmp(const char* str1, const char* str2);
 
 #include <iostream>
 #include <cstring>
@@ -75,20 +77,23 @@ int main(void)
 
     cout << "\n\nUsing strcmp - C library function: ";
 
-    cout << "\n\"ABCD\" is less than \"ABCDE\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCDE");
+    cout << "\n\"ABCD\" is less than \"ABCDE\" ... my_strcmp returns: " <<
+        my_strcmp("ABCD", "ABCDE");
 
-    cout << "\n\"ABCD\" is less than \"ABND\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABND");
+    cout << "\n\"ABCD\" is less than \"ABND\" ... my_strcmp returns: " <<
+        my_strcmp("ABCD", "ABND");
 
-    cout << "\n\"ABCD\" is equal than \"ABCD\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCD");
+    cout << "\n\"ABCD\" is equal than \"ABCD\" ... my_strcmp returns: " <<
+        my_strcmp("ABCD", "ABCD");
 
-    cout << "\n\"ABCD\" is less than \"ABCd\" ... strcmp returns: " <<
-        strcmp("ABCD", "ABCd");
+    cout << "\n\"ABCD\" is less than \"ABCd\" ... my_strcmp returns: " <<
+        my_strcmp("ABCD", "ABCd");
 
-    cout << "\n\"Orange\" is greater than \"Apple\" ... strcmp returns: " <<
-        strcmp("Orange", "Apple") << endl;
+    cout << "\n\"Orange\" is greater than \"Apple\" ... my_strcmp returns: " <<
+        my_strcmp("Orange", "Apple") << endl;
+
+    cout << "\n\"ab\" is equal to \"ba\" ... my_strcmp returns: " <<
+        my_strcmp("AB", "BA");
 
     return 0;
 }
@@ -121,4 +126,23 @@ void my_strncat(char* dest, const char* source, int n) {
     }
 
     *dest = '\0';
+}
+
+int my_strcmp(const char* str1, const char* str2) {
+    int str1_count=0, str2_count=0;
+    int str_diff;
+
+    while (*str1 != '\0') {
+        str1_count += (int)*str1;
+        str1++;
+    }
+
+    while (*str2 != '\0') {
+        str2_count += (int)*str2;
+        str2++;
+    }
+
+    str_diff = str1_count - str2_count;
+
+    return str_diff;
 }
