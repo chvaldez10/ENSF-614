@@ -50,8 +50,7 @@ int main(void)
 }
 
 
-double read_double_only(void)
-{
+double read_double_only(void) {
   double value_read;
   int char_code;
  
