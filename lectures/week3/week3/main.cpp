@@ -1,24 +1,24 @@
 #include <iostream>
 using namespace std;
 
-int largest(int* arr, int n) {
-    int j;
-    int max = arr[0];
-    for (j = 1; j < n; j++)
-        *(arr + j) = 1;
-        if (arr[j] > max)
-            max = arr[j];
-    return max;
-}
+void largest(int* a, int n, int* max);
 
 int main(void) {
     int arr1[] = { 3, 7, 2, 5, 8 };
-    cout << "Expected: 8, Got: " << largest(arr1, 5) << endl;
+    int result;
+    largest(arr1, 5, &result);
 
-    for (int i = 0; i < 5; i++) {
-        cout << arr1[i] << endl;
-    }
+    cout << "Expected: 8, Got: " << result << endl;
 
     return 0;
 }
 
+void largest(int* a, int n, int* max) {
+    *max = *a;
+
+    for (int i = 1; i < n; i++) {
+        if (*(a + i) > *max) {
+            *max = *(a + i);
+        }
+    }
+}
