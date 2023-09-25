@@ -1,7 +1,10 @@
 /*
+ * lab2exe_E.h
  * Interface to complex number module
- *
- * ENSF 614 Lab 2 Exercise E
+ * Assignment: Lab 2 Exercise E
+ * Section: B01
+ * Completed by: Christian Valdez and Redge Santillan
+ * Submission date: Sep 27, 2023
  */
 
 #ifndef CPLX_H
@@ -39,9 +42,7 @@ void cplx_subtract(cplx z1, cplx z2,  cplx *difference);
  *   by subtracting z2 from z1.
  */
 
-void cplx_multiply(const cplx *pz1,
-              const cplx *pz2,
-              cplx *product);
+void cplx_multiply(const cplx *pz1, const cplx *pz2, cplx *product);
 /*
  * REQUIRES
  *   pz1, pz2 and product point to variables.

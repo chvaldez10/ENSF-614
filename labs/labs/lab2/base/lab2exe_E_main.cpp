@@ -1,7 +1,10 @@
 /*
+ * lab2exe_E_main.cpp
  * Main program file.
- *
- * ENSF 614 Lab 2 Exercise E
+ * Assignment: Lab 2 Exercise E
+ * Section: B01
+ * Completed by: Christian Valdez and Redge Santillan
+ * Submission date: Sep 27, 2023
  */
 
 #include <iostream>
@@ -23,41 +26,48 @@ double read_double_only(void);
  *        Return value is the double that was read.
  */
 
-int main(void)
-{
-  cplx w, z;            /* entered by user */
-  cplx sum;            /* sum of w and z */
-  cout << "This programs needs values for complex numbers w and z.\n";
-
-  cout << "  Please enter the real part of w     : ";
-  w.real = read_double_only();
+int main(void) {
+    cplx w, z;
+    cplx sum, subtract, multiply;
     
-  cout << "  Please enter the imaginary part of w: ";
-  w.imag = read_double_only();
-  
-  cout << "  Please enter the real part of z     : ";
-  z.real = read_double_only();
-  cout << "  Please enter the imaginary part of z: ";
-  z.imag = read_double_only();
+    cout << "This programs needs values for complex numbers w and z.\n";
 
-  cout << "\nw is (" << w.real << ") + j(" << w.imag << ")\n";
-  cout << "z is (" << z.real << ") + j(" << z.imag << ")\n";
+    cout << "  Please enter the real part of w     : ";
+    w.real = read_double_only();
 
-  sum = cplx_add(w, z);
+    cout << "  Please enter the imaginary part of w: ";
+    w.imag = read_double_only();
 
-  cout << "\nsum is (" << sum.real << ") + j(" << sum.imag << "}\n";
-  return 0;
+    cout << "  Please enter the real part of z     : ";
+    z.real = read_double_only();
+
+    cout << "  Please enter the imaginary part of z: ";
+    z.imag = read_double_only();
+
+    cout << "\nw is (" << w.real << ") + j(" << w.imag << ")\n";
+    cout << "z is (" << z.real << ") + j(" << z.imag << ")\n";
+
+    sum = cplx_add(w, z);
+    cout << "\nsum is (" << sum.real << ") + j(" << sum.imag << "}\n";
+
+    cplx_subtract(w, z, &subtract);
+    cout << "\nsubtract is (" << subtract.real << ") + j(" << subtract.imag << "}\n";
+    
+    cplx_multiply(&w, &z, &multiply);
+    cout << "\nmultiply is (" << multiply.real << ") + j(" << multiply.imag << "}\n";
+
+    return 0;
 }
 
 
 double read_double_only(void) {
-  double value_read;
-  int char_code;
- 
-  if (!(cin >> value_read)) {
-    cout << "Error trying to read in a double.  Program terminated.\n";
-    exit(1);
-  }
- 
-  return value_read;
+    double value_read;
+    int char_code;
+
+    if (!(cin >> value_read)) {
+        cout << "Error trying to read in a double.  Program terminated.\n";
+        exit(1);
+    }
+
+    return value_read;
 }

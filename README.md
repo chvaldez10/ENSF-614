@@ -20,9 +20,10 @@ Labs: Wednesday's before 1:00 PM.
 - 📁 **ENSF-614** (root folder)
   - 📁 **labs** (shared folder)
     - 📁 **lab2** (VS project)
-      - 📁 **base**
-      - lab2 **media**
+      - 📁 **base** (cpp and header files)
+      - 📁 **lab2**
       - 📝 **documents**
+  - 📁 **template**
   - 📁 **Playground** (personal folder)
     - 📁 **Christian**
       - 📁 **lab1**
