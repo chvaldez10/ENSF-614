@@ -29,22 +29,23 @@ int main(void) {
 
     // up and down
     int arr[] = { 1, 2, 3 ,4, 5, 4, 3, 2, 1 };
-    bool upAndDownResult = upAndDown(arr, 9);
     int arrLength = sizeof(arr) / sizeof(int);
+    bool upAndDownResult = upAndDown(arr, arrLength);
+    cout << "up and down result = " << upAndDownResult << endl;
 
-    // all diff
-    char left[] = "abcd";
-    char right[] = "efghd";
-    bool allDiffResult = allDiff(left, right);
+    //// all diff
+    //char left[] = "abcd";
+    //char right[] = "efghd";
+    //bool allDiffResult = allDiff(left, right);
 
-    // compare my strings
-    char left2[] = "abcd";
-    char right2[] = "abcde";
-    int test = compareMyStrings(left2, right2);
+    //// compare my strings
+    //char left2[] = "abcd";
+    //char right2[] = "abcde";
+    //int test = compareMyStrings(left2, right2);
 
-    // clock
-    long time = 18123400;
-    Clock newClock = millisecond_to_Clock(time);
+    //// clock
+    //long time = 18123400;
+    //Clock newClock = millisecond_to_Clock(time);
 
     return 0;
 }
@@ -121,31 +122,31 @@ bool allDiff(const char* left, const char* right) {
 }
 
 bool upAndDown(const int* arr, int n) {
-    int max = *arr;
-    int j = 0;
+    int max = *arr, i = 1, j, min;
 
-    for (int i = 1; i < n; i++) {
-        j = i;
-
-        if (*(arr + i) > max) {
-            max = *(arr + i);
-        }
-        else {
+    while (i < n) {
+        if (arr[i] < max) {
             break;
         }
+        else {
+            max = arr[i];
+            i++;
+        }
     }
-    int min = max;
+    
+    j = i;
+    min = max;
 
     while (j < n) {
-        if (*(arr + j) < min) {
-            min = *(arr + j);
-        }
-        else {
+        if (arr[j] > min) {
             return false;
         }
-
-        j++;
+        else {
+            min = arr[j];
+            j++;
+        }
     }
+
     return true;
 }
 
