@@ -2,14 +2,9 @@
 
 This repo is for ENSF 614 course materials.
 
-**Lab Partners:**
-
-- Redge Santillan (30211001)
-- Christian Valdez (30065766)
-
 ## Outstanding Tasks
 
-- ENSF 614 Lab 2 report 📥
+- ENSF 614 Lab 3 report 📥
 
 ## Deadlines 📅:
 
@@ -19,10 +14,12 @@ Labs: Wednesday's before 1:00 PM.
 
 - 📁 **ENSF-614** (root folder)
   - 📁 **labs** (shared folder)
-    - 📁 **lab2** (VS project)
+    - 📁 **lab2**
+    - 📁 **lab3**
       - 📁 **base** (cpp and header files)
-      - 📁 **lab2**
-      - 📝 **documents**
+      - 📁 **lab3-XCode** (XCode)
+      - 📁 **lab3-VS** (VS studio)
+      - 📝 **documents** (report in here)
   - 📁 **template**
   - 📁 **Playground** (personal folder)
     - 📁 **Christian**
