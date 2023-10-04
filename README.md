@@ -16,15 +16,14 @@ Labs: Wednesday's before 1:00 PM.
   - 📁 **labs** (shared folder)
     - 📁 **lab2**
     - 📁 **lab3**
-      - 📁 **base** (cpp and header files)
-      - 📁 **lab3-XCode** (XCode)
-      - 📁 **lab3-VS** (VS studio)
+      - 📁 **base** (cpp and header files to hand in)
+      - 📁 **lab3-XCode** (XCode Project)
+      - 📁 **lab3** (VS Project)
       - 📝 **documents** (report in here)
   - 📁 **template**
-  - 📁 **Playground** (personal folder)
+  - 📁 **Playground**
     - 📁 **Christian**
       - 📁 **lab1**
       - 📁 **lectures**
-    - 📁 **Redge**
   - 📄 .gitignore
   - 📄 README.md
