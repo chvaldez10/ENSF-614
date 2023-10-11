@@ -1,130 +1,100 @@
-// File lab3exe_C.cpp
-// ENSF 614 Fall 2022,  LAB3 - EXERCISE C
+// lab3exe_D.cpp
+// ENSF 614 Lab 3 Exercise D
+//
+// This program demonstrates the use of all the features
+// of the MyArray class.
+
 
 #include <iostream>
-#include <iomanip>
-using std::cout;
-using std::endl;
-using std::setw;
-using std::setfill;
+using namespace std;
 
-#include "lab3Clock.h"
+#include "MyArray.h"
 
-void print(const Clock& t);
-// REQUIRES: t refers to an object of class Clock with valid values.
-// PROMISES: displays the time values in an object of class Clock:
-//           in the following hh:mm:ss.
+int main()
+{
+    int i;
 
-int main(void) {
+    // Create empty array, then grow it.
+    MyArray a;
+    a.resize(5);
+    for (i = 0; i < a.size(); i++)
+        a.set(i, 0.5 + i);
 
-    Clock t1;
-    cout << "Object t1 is created. Expected time is: 00:00:00\n";
-    print(t1);
+    cout << "Elements of a: ";
+    for (i = 0; i < a.size(); i++)
+        cout << ' ' << a.at(i);
+    cout << endl;
+    cout << "(Expected:      " << "0.5 1.5 2.5 3.5 4.5)\n\n";
 
-    for (int i = 0; i < 86400; i++)
-        t1.increment();
+    // Copy array from built-in array, then expand.
+    double x[] = { 10.5, 11.5, 12.5, 13.5 };
+    MyArray b(x, 4);
+    b.resize(7);
+    for (i = 4; i < b.size(); i++)
+        b.set(i, 10.5 + i);
 
-    cout << "Object t1 incremented by 86400 seconds. Expected time is: 00:00:00\n";
-    print(t1);
+    cout << "Elements of b after first resize: ";
+    for (i = 0; i < b.size(); i++)
+        cout << ' ' << b.at(i);
+    cout << endl;
+    cout << "(Expected:                         "
+        << "10.5 11.5 12.5 13.5 14.5 15.5 16.5)\n\n";
 
-    Clock t2(86405);
-    cout << "Object t2 is created. Expected time is: 00:00:05\n";
-    print(t2);
+    // Now shrink b.
+    b.resize(3);
 
-    for (int i = 0; i < 6; i++)
-        t2.decrement();
+    cout << "Elements of b after second resize: ";
+    for (i = 0; i < b.size(); i++)
+        cout << ' ' << b.at(i);
+    cout << endl;
+    cout << "(Expected:                          "
+        << "10.5 11.5 12.5)\n\n";
 
-    cout << "Object t2 decremented by 6 seconds. Expected time is: 23:59:59\n";
-    print(t2);
+    // Quick check of copy ctor.
+    MyArray c(b);
+    c.set(0, -1.5);               // should not affect b
 
+    cout << "Elements of b after copy ctor check: ";
+    for (i = 0; i < b.size(); i++)
+        cout << ' ' << b.at(i);
+    cout << endl;
+    cout << "(Expected:                            "
+        << "10.5 11.5 12.5)\n\n";
 
-    t1.set_hour(21);
-    cout << "After setting t1's hour to 21. Expected time is: 21:00:00\n";
-    print(t1);
+    cout << "Elements of c after copy ctor check: ";
+    for (i = 0; i < c.size(); i++)
+        cout << ' ' << c.at(i);
+    cout << endl;
+    cout << "(Expected:                            "
+        << "-1.5 11.5 12.5)\n\n";
 
-    t1.set_hour(60);
-    cout << "Setting t1's hour to 60 (invalid value). Expected time is: 21:00:00\n";
-    print(t1);
+    // Quick check of operator =.
+    // Note tests of self-assignment and chaining.
+    c = b = a;
+    a.set(0, -10.5);              // should not affect b or c
+    b.set(0, -11.5);              // should not affect a or c
+    a = a;
 
-    t2.set_minute(20);
-    cout << "Setting t2's minute to 20. Expected time is: 23:20:59\n";
-    print(t2);
+    cout << "Elements of a after operator = check: ";
+    for (i = 0; i < a.size(); i++)
+        cout << ' ' << a.at(i);
+    cout << endl;
+    cout << "(Expected:                             "
+        << "-10.5 1.5 2.5 3.5 4.5)\n\n";
 
-    t2.set_second(50);
-    cout << "Setting t2's second to 50. Expected time is 23:20:50\n";
-    print(t2);
+    cout << "Elements of b after operator = check: ";
+    for (i = 0; i < b.size(); i++)
+        cout << ' ' << b.at(i);
+    cout << endl;
+    cout << "(Expected:                             "
+        << "-11.5 1.5 2.5 3.5 4.5)\n\n";
 
-    t2.add_seconds(2350);
-    cout << "Adding 2350 seconds to t2. Expected time is: 00:00:00\n";
-    print(t2);
-
-    t2.add_seconds(72000);
-    cout << "Adding 72000 seconds to t2. Expected time is: 20:00:00\n";
-    print(t2);
-
-
-    t2.add_seconds(216000);
-    cout << "Adding 216000 seconds to t2. Expected time is: 08:00:00\n";
-    print(t2);
-
-    Clock t3(0, 0, 0);
-    cout << "Object t3 is created. Expected time is: 00:00:00\n";
-    print(t3);
-
-    t3.increment();
-    cout << "Adding 1 second to clock t3. Expected time is: 00:00:01\n";
-    print(t3);
-
-    t3.decrement();
-    cout << "After calling decrement for t3. Expected time is: 00:00:00\n";
-    print(t3);
-
-    for (int i = 0; i < 86400; i++)
-        t3.increment();
-
-    cout << "After incrementing t3 by 86400 seconds. Expected time is: 00:00:00\n";
-    print(t3);
-
-    for (int i = 0; i < 86401; i++)
-        t3.decrement();
-
-    cout << "After decrementing t3 by 86401 seconds. Expected time is: 23:59:59\n";
-    print(t3);
-
-    for (int i = 0; i < 864010; i++)
-        t3.decrement();
-
-    cout << "After decrementing t3 by 864010 seconds. Expected time is: 23:59:49\n";
-    print(t3);
-
-    // Oject t4 is created with invalid value of hour (i.e. 25), and valid values
-    // for other members, minute and second respectively.
-    Clock t4(25, 0, 0);
-    cout << "t4 is created with invalid value (25 for hour). Expected to show: 00:00:00\n";
-    print(t4);
-
-    // Oject t5 is created with invalid value of minute (i.e. -8), and valid values
-    // for other member, hour and second.
-    Clock t5(23, -8, 59);
-    cout << "t5 is created with invalid value (-8 for minute). Expected to show: 00:00:00\n";
-    print(t5);
-
-    // Oject t6 is created with invalid value of second (i.e. 61), and valid values
-    // for other members.
-    Clock t6(23, 59, 61);
-    cout << "t6 is created with invalid value (61 for second). Expected to show: 00:00:00\n";
-    print(t6);
-
-    Clock t7(-10);
-    cout << "t7 is created with invalid value (negative value). Expected to show: 00:00:00\n";
-    print(t7);
+    cout << "Elements of c after operator = check: ";
+    for (i = 0; i < c.size(); i++)
+        cout << ' ' << c.at(i);
+    cout << endl;
+    cout << "(Expected:                             "
+        << "0.5 1.5 2.5 3.5 4.5)\n\n";
 
     return 0;
-}
-
-
-void print(const Clock& t)
-{
-    cout << setw(2) << setfill('0') << t.get_hour() << ":"
-        << setw(2) << t.get_minute() << ":" << setw(2) << t.get_second() << endl;
 }
