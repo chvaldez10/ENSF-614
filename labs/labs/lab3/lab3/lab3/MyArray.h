@@ -23,7 +23,7 @@ public:
   //   For i from 0 to sizeA-1, element i of object == builtin[i]. 
 
   MyArray(const MyArray& source);
-  MyArray& operator =(const MyArray& rhs);
+  MyArray& operator = (const MyArray& rhs);
   ~MyArray();
 
   int size() const;
