@@ -1,81 +1,90 @@
-//  ENSF 614 - Fall 2023  Lab4 - exercise A
-// lab4ExA.cpp
-
-#include<vector>
-#include<string>
+//  ENSF 614 fall 2023 Lab 4 - Exercise B
 #include <iostream>
-#include <assert.h> 
+#include <fstream>
+#include <sstream>
+#include <stdlib.h>
 
+const int vector_size = 6;
 
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::vector;
-using std::string;
+using namespace std;
 
-typedef std::vector<std::string> String_Vector;
+struct City {
+    double x, y;
+    char name[30];
+};
 
-String_Vector transpose(const String_Vector& sv);
-// REQUIRES:
-//    sv.size() >= 1
-//    All the strings in sv are the same length, and that length is >= 1.
-// PROMISES:
-//    Return value is the "transpose" of sv, as defined in the Exercise B
-//    instructions.
+void write_binary_file(City cities[], int vector_size, char* filename);
+/* PROMISES: attaches an ofstream object to a binary file named "filename" and
+ * writes the content of the array cities into the file.
+ */
+
+void print_from_binary(char* filename);
+/* PROMISES: uses ifstream library object to open the binary file named
+ * "filename", reads the content of the file which are objects of struct City
+ * (one record at a time), and displays them on the screen. It also saves the records
+ * into a text-file that its name must be the filename argument, but with the extension
+ * of .txt
+ */
+
 
 int main() {
+    char streamname[] = "cities.bin";
 
-    const int ROWS = 5;
-    const int COLS = 4;
+    City cities[vector_size] = { {100, 50, "Calgary"},
+        {100, 150, "Edmonton"},
+        {50, 50, "Vancouver"},
+        {200, 50, "Regina"},
+        {500, 50, "Toronto"},
+        {200, 50, "Montreal"} };
 
-    char c = 'A';
-    String_Vector sv;
-    sv.resize(ROWS);
-
-    for (int i = 0; i < ROWS; i++)
-        for (int j = 0; j < COLS; j++) {
-            sv.at(i).push_back(c);
-            c++;
-            if (c == 'Z' + 1)
-                c = 'a';
-            else if (c == 'z' + 1)
-                c = 'A';
-        }
-
-
-    for (int i = 0; i < ROWS; i++) {
-        cout << sv.at(i);
-        cout << endl;
-    }
-
-    String_Vector vs = transpose(sv);
-    for (int i = 0; i < (int)vs.size(); i++)
-        cout << vs.at(i) << endl;
+    write_binary_file(cities, vector_size, streamname);
+    cout << "\nThe content of the binary file is:" << endl;
+    print_from_binary(streamname);
 
     return 0;
 }
 
-
-
-String_Vector transpose(const String_Vector& sv) {
-    
-    assert(sv.size() >= 1);
-    
-    size_t rows = sv.size();
-    size_t col = sv.at(0).size();
-    
-    // check if all strings have the same length
-    for (const auto& s : sv) {
-        assert(s.size() == col);
+void write_binary_file(City cities[], int vector_size, char* filename) {
+    ofstream stream(filename, ios::out | ios::binary);
+    if (stream.fail()) {
+        cerr << "failed to open file: " << filename << endl;
+        exit(1);
     }
 
-    String_Vector vs(col, string(rows, ' '));
+    for (int i = 0; i < vector_size; i++) {
+        stream.write((char*)&cities[i], sizeof(City));
+    }
 
-    for (size_t j = 0; j < col; j++) {
-        for (size_t i = 0; i < rows; i++) {
-            vs[j][i] = sv[i][j];
+    stream.close();
+}
+
+void print_from_binary(char* filename) {
+    ifstream stream(filename, ios::in | ios::binary);
+    int counter = 0;
+    City current_city;
+
+    if (!stream.is_open()) {
+        cerr << "failed to open the file: " << filename << endl;
+        exit(1);
+    }
+
+    while (counter < vector_size) {
+        stream.read((char*)(&current_city), sizeof(City));
+        
+        if (stream.eof()) {
+            break;
         }
+
+        if (!stream) {
+            cerr << "failed to read from input file" << endl;
+            exit(1);
+        }
+        
+        cout << current_city.name << ", x coordinate: " << current_city.x <<
+            ", y coordinate: " << current_city.y << endl;
+        counter++;
     }
 
-    return vs;
+    stream.close();
+
 }
