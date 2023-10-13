@@ -4,6 +4,9 @@
 #include<vector>
 #include<string>
 #include <iostream>
+#include <assert.h> 
+
+
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -55,16 +58,22 @@ int main() {
 
 
 String_Vector transpose(const String_Vector& sv) {
+    
+    assert(sv.size() >= 1);
+    
     size_t rows = sv.size();
     size_t col = sv.at(0).size();
-
-    String_Vector vs;
-    vs.resize(col);
     
+    // check if all strings have the same length
+    for (const auto& s : sv) {
+        assert(s.size() == col);
+    }
+
+    String_Vector vs(col, string(rows, ' '));
+
     for (size_t j = 0; j < col; j++) {
-        vs.at(j).resize(rows);
         for (size_t i = 0; i < rows; i++) {
-            vs.at(j).at(i) = sv.at(i).at(j);
+            vs[j][i] = sv[i][j];
         }
     }
 
