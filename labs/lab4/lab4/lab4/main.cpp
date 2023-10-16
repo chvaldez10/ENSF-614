@@ -70,7 +70,7 @@ void print_from_binary(char* filename) {
 
     while (counter < vector_size) {
         stream.read((char*)(&current_city), sizeof(City));
-        
+
         if (stream.eof()) {
             break;
         }
@@ -79,7 +79,7 @@ void print_from_binary(char* filename) {
             cerr << "failed to read from input file" << endl;
             exit(1);
         }
-        
+
         cout << current_city.name << ", x coordinate: " << current_city.x <<
             ", y coordinate: " << current_city.y << endl;
         counter++;

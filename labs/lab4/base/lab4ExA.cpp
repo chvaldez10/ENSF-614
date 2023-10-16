@@ -1,5 +1,11 @@
-//  ENSF 614 - Fall 2023  Lab4 - exercise A
-// lab4ExA.cpp
+/*
+ * lab4ExA.cpp
+ * Main program file.
+ * Assignment: Lab 4 Exercise A
+ * Section: B01
+ * Completed by: Christian Valdez
+ * Submission date: Oct 18, 2023
+ */
 
 #include<vector>
 #include<string>
