@@ -23,9 +23,10 @@ public:
 	//			 using the given input
 
 	Point(const Point& pointSource);
-	// copy constructor
+	// PROMISES: safe copy for Point
 
 	Point& operator = (Point& pointSource);
+	// PROMISES: safe copy for Point
 
 	~Point();
 	// PROMISES: destroys point object
