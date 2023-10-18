@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <cmath>
 #include "point.h"
 
 using namespace std;
@@ -52,3 +53,14 @@ void Point::display() {
 		"\nY-coordinate: " << y << endl;
 }
 
+double Point::distance(Point& p) {
+	double deltaX = fabs(p.getX() - this->x);
+	double deltaY = fabs(p.getY() - this->y);
+	return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+}
+
+double Point::distance(Point& p1, Point& p2) {
+	double deltaX = fabs(p1.getX() - p2.getX());
+	double deltaY = fabs(p1.getY() - p2.getY());
+	return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+}

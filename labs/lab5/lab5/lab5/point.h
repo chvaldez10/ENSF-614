@@ -44,7 +44,13 @@ public:
 	// PROMISES: returns number of points
 
 	void display();
-	// PROMISES: displays x and y coordinates for point
+	// PROMISE: displays x and y coordinates in the terminal
+
+	double distance(Point& p);
+	// PROMISES: distance between obj and another point
+
+	static double distance(Point& p1, Point& p2);
+	// PROMISES: distance between 2 points
 
 };
 
