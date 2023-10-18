@@ -25,6 +25,12 @@ public:
 	~Point();
 	// PROMISES: destroys point object
 
+	void setX(double x);
+	// PROMISES: sets new values for x coordinate
+
+	void setY(double y);
+	// PROMISES: sets new values for x coordinate
+
 	double getX() const;
 	// PROMISES: returns x coordinate
 
