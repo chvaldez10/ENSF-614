@@ -18,11 +18,6 @@ void write_binary_file(City cities[], int vector_size, char* filename);
  * writes the content of the array cities into the file.
  */
 
-void write_to_text(City cities[], int vector_size, char* filename);
-/* PROMISES: attaches an ofstream object to a txt file named "filename" and
- * writes the content of the array cities into the file.
- */
-
 void print_from_binary(char* filename);
 /* PROMISES: uses ifstream library object to open the binary file named
  * "filename", reads the content of the file which are objects of struct City
@@ -63,19 +58,36 @@ void write_binary_file(City cities[], int vector_size, char* filename) {
     stream.close();
 }
 
-void print_from_binary(char* filename) {
-    char txt_name[] = "cities.txt";
-    ifstream stream(filename, ios::in | ios::binary);
-    int counter = 0;
-    City cities[vector_size];
+/* PROMISES: uses ifstream library object to open the binary file named
+ * "filename", reads the content of the file which are objects of struct City
+ * (one record at a time), and displays them on the screen. It also saves the records
+ * into a text-file that its name must be the filename argument, but with the extension
+ * of .txt
+ */
 
-    if (!stream.is_open()) {
+
+void print_from_binary(char* filename) {
+    string file_base_name(filename);
+    string txt_name = file_base_name.substr(0, file_base_name.rfind('.')) + ".txt";
+    
+    ifstream stream(filename, ios::in | ios::binary);
+    ofstream stream_txt(txt_name);
+    
+    int counter = 0;
+    City city;
+
+    if (!stream) {
         cerr << "failed to open the file: " << filename << endl;
         exit(1);
     }
 
+    if (!stream_txt) {
+        cerr << "Failed to create the file: " << txt_name << endl;
+        exit(1); // Consider throwing an exception instead
+    }
+
     while (counter < vector_size) {
-        stream.read((char*)(&cities[counter]), sizeof(City));
+        stream.read((char*)(&city), sizeof(City));
 
         if (stream.eof()) {
             break;
@@ -86,24 +98,15 @@ void print_from_binary(char* filename) {
             exit(1);
         }
 
-        cout << "Name: " << cities[counter].name << ", x coordinate: " << cities[counter].x <<
-            ", y coordinate: " << cities[counter].y << endl;
+        cout << "Name: " << city.name << ", x coordinate: " << city.x <<
+            ", y coordinate: " << city.y << endl;
+
+        stream_txt << "Name: " << city.name << ", x coordinate: " << city.x <<
+            ", y coordinate: " << city.y << endl;
+
         counter++;
     }
 
-    stream.close();
-    write_to_text(cities, vector_size, txt_name);
-}
-
-void write_to_text(City cities[], int vector_size, char* filename) {
-    int counter = 0;
-    ofstream stream(filename);
-
-    while (counter < vector_size) {
-        stream << "Name: " << cities[counter].name << ", x coordinate: " << cities[counter].x <<
-            ", y coordinate: " << cities[counter].y << endl;
-        counter++;
-    }
-
+    stream_txt.close();
     stream.close();
 }
