@@ -22,6 +22,11 @@ public:
 	// PROMISES: point initializes point x and y coordinates 
 	//			 using the given input
 
+	Point(const Point& pointSource);
+	// copy constructor
+
+	Point& operator = (Point& pointSource);
+
 	~Point();
 	// PROMISES: destroys point object
 

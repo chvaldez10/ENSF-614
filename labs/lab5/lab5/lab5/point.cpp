@@ -14,10 +14,28 @@
 using namespace std;
 
 int Point::numOfPoints = 0;
+const int idStart = 1001;
 
 Point::Point(double pX, double pY) : x(pX), y(pY){
-	id = 1001 + numOfPoints;
+	id = idStart + numOfPoints;
 	numOfPoints++;
+}
+
+Point& Point::operator=(Point& pointSource) {
+	if (this != &pointSource) {
+		this->x = pointSource.getX();
+		this->y = pointSource.getX();
+		this->id = ++numOfPoints + idStart;
+	}
+
+	return *this;
+}
+
+Point::Point(const Point& pointSource) : x(pointSource.getX()),
+	y(pointSource.getY()) {
+	
+	this->id = ++numOfPoints + idStart;
+	
 }
 
 Point::~Point() {
