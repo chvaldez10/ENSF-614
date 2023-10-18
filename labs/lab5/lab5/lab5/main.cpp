@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#include "point.h"
+
 int main() {
 	cout << "hello" << endl;
 	return 0;
