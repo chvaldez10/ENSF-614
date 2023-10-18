@@ -19,6 +19,8 @@ Lab 5: Monday before 11:59 PM.
     - 📁 **lab4**
     - 📁 **lab5**
       - 📁 **base** (cpp and header files to hand in)
+        - 📁 **exA**
+        - 📁 **exB**
       - 📁 **lab5** (VS Project)
       - 📝 **documents** (report in here)
   - 📁 **template**
