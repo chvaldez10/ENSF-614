@@ -25,6 +25,15 @@ public:
 	~Point();
 	// PROMISES: destroys point object
 
+	double getX() const;
+	// PROMISES: returns x coordinate
+
+	double getY() const;
+	// PROMISES: returns y coordinate
+
+	int getId() const;
+	// PROMISES: returns point id
+
 	int counter() const;
 	// PROMISES: returns number of points
 

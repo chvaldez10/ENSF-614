@@ -23,6 +23,18 @@ Point::~Point() {
 	numOfPoints--;
 }
 
+double Point::getX() const {
+	return x;
+}
+
+double Point::getY() const {
+	return y;
+}
+
+int Point::getId() const {
+	return id;
+}
+
 int Point::counter() const {
 	return numOfPoints;
 }
