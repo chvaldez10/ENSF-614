@@ -16,26 +16,23 @@ using namespace std;
 int Point::numOfPoints = 0;
 const int idStart = 1001;
 
-Point::Point(double pX, double pY) : x(pX), y(pY){
-	id = idStart + numOfPoints;
+Point::Point(double pX, double pY) : x(pX), y(pY), id(idStart+numOfPoints){
 	numOfPoints++;
 }
 
 Point& Point::operator=(Point& pointSource) {
 	if (this != &pointSource) {
-		this->x = pointSource.getX();
-		this->y = pointSource.getX();
-		this->id = ++numOfPoints + idStart;
+		// No change to 'id' or 'numOfPoints' as it's an existing object being reassigned.
+		this->x = pointSource.x;
+		this->y = pointSource.y;
 	}
 
 	return *this;
 }
 
-Point::Point(const Point& pointSource) : x(pointSource.getX()),
-	y(pointSource.getY()) {
-	
-	this->id = ++numOfPoints + idStart;
-	
+Point::Point(const Point& pointSource) : x(pointSource.x), y(pointSource.y) {
+	numOfPoints++;
+	id = idStart + numOfPoints;
 }
 
 Point::~Point() {
@@ -71,14 +68,15 @@ void Point::display() {
 		"\nY-coordinate: " << y << endl;
 }
 
-double Point::distance(Point& p) {
-	double deltaX = fabs(p.getX() - this->x);
-	double deltaY = fabs(p.getY() - this->y);
-	return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+double Point::distance(const Point& p) const {
+	double deltaX = p.getX() - this->x;
+	double deltaY = p.getY() - this->y;
+	return sqrt(deltaX * deltaX + deltaY * deltaY);
 }
 
-double Point::distance(Point& p1, Point& p2) {
-	double deltaX = fabs(p1.getX() - p2.getX());
-	double deltaY = fabs(p1.getY() - p2.getY());
-	return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+// This should be declared static in the header file
+double Point::distance(const Point& p1, const Point& p2) {
+	double deltaX = p1.getX() - p2.getX();
+	double deltaY = p1.getY() - p2.getY();
+	return sqrt(deltaX * deltaX + deltaY * deltaY);
 }

@@ -4,7 +4,7 @@
 #define SHAPE_H
 class Shape {
 protected:
-	Point p;
+	Point origin;
 	char* shapeName;
 
 public:

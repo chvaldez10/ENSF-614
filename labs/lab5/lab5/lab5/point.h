@@ -52,10 +52,10 @@ public:
 	void display();
 	// PROMISE: displays x and y coordinates in the terminal
 
-	double distance(Point& p);
+	double distance(const Point& p) const;
 	// PROMISES: distance between obj and another point
 
-	static double distance(Point& p1, Point& p2);
+	static double distance(const Point& p1, const Point& p2);
 	// PROMISES: distance between 2 points
 
 };
