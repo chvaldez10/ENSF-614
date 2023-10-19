@@ -20,15 +20,18 @@ Point::Point(double pX, double pY) : x(pX), y(pY), id(idStart+numOfPoints){
 	numOfPoints++;
 }
 
-Point& Point::operator=(Point& pointSource) {
-	if (this != &pointSource) {
-		// No change to 'id' or 'numOfPoints' as it's an existing object being reassigned.
-		this->x = pointSource.x;
-		this->y = pointSource.y;
+Point& Point::operator=(const Point& pointSource) {
+	if (this == &pointSource) {
+		return *this; // handle self assignment
 	}
+	// Individual member assignment
+	x = pointSource.x;
+	y = pointSource.y;
+	// id should not be copied; it's unique to each instance
 
-	return *this;
+	return *this; // Return a reference to the current instance
 }
+
 
 Point::Point(const Point& pointSource) : x(pointSource.x), y(pointSource.y) {
 	numOfPoints++;

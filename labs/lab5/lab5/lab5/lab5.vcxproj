@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graphicsworld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="shape.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="graphicsworld.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="shape.h" />
   </ItemGroup>

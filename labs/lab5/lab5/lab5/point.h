@@ -25,7 +25,7 @@ public:
 	Point(const Point& pointSource);
 	// PROMISES: safe copy for Point
 
-	Point& operator = (Point& pointSource);
+	Point& operator = (const Point& pointSource);
 	// PROMISES: safe copy for Point
 
 	~Point();

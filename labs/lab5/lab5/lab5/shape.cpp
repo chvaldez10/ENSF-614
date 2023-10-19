@@ -1,50 +1,66 @@
-#include <iostream>
-#include <cmath>
-#include <cstring>
-#include "shape.h"
-
-using namespace std;
-
-Shape::Shape(double x, double y, const char* s) : origin(x, y) {
-	int stringLength = strlen(s)+1;
-	shapeName = new char[stringLength];
-	strcpy_s(shapeName, stringLength, s);
-}
-
-Shape::Shape(const Shape& shapeSource) : origin(shapeSource.getOrigin()) {
-	int shapeNameLength = strlen(shapeSource.getName())+1;
-	shapeName = new char[shapeNameLength];
-	strcpy_s(shapeName, shapeNameLength, shapeSource.getName());
-
-}
-
-Shape& Shape::operator=(Shape& shapeSource) {
-	if (this != &shapeSource) {
-		delete[] shapeName;
-		origin.setX(shapeSource.getOrigin().getX());
-		origin.setY(shapeSource.getOrigin().getY());
-		int shapeNameLength = strlen(shapeSource.getName()) + 1;
-		shapeName = new char[shapeNameLength];
-		strcpy_s(shapeName, shapeNameLength, shapeSource.getName());
-	}
-	return *this;
-}
-
-Shape::~Shape() {
-	delete[] shapeName;
-	shapeName = nullptr;
-}
-
-const Point& Shape::getOrigin() const {
-	return origin;
-}
-
-const char* Shape::getName() const {
-	return shapeName;
-}
-
-void Shape::display() {
-	cout << "Shape name: " << shapeName <<
-		"X-coordinate: " << origin.getX() <<
-		"Y-coordinate: " << origin.getY() << endl;
-}
+//#include <iostream>
+//#include <cmath>
+//#include <cstring>
+//#include "shape.h"
+//
+//using namespace std;
+//
+//Shape::Shape(double x, double y, const char* s) : origin(x, y) {
+//	if (s == nullptr) {
+//		throw invalid_argument("Null pointer found for shape name");
+//	}
+//
+//	size_t stringLength = strlen(s)+1;
+//	shapeName = new char[stringLength];
+//	strcpy_s(shapeName, stringLength, s);
+//}
+//
+//Shape::Shape(const Shape& shapeSource) : origin(shapeSource.getOrigin()) {
+//	const char* sourceName = shapeSource.getName();
+//	if (sourceName == nullptr) {
+//		throw invalid_argument("Null pointer found for shape name");
+//	}
+//
+//	size_t shapeNameLength = strlen(sourceName)+1;
+//	shapeName = new char[shapeNameLength];
+//	strcpy_s(shapeName, shapeNameLength, sourceName);
+//
+//}
+//
+//Shape& Shape::operator=(Shape& shapeSource) {
+//	if (this != &shapeSource) {
+//		const char* sourceName = shapeSource.getName();
+//		if (sourceName == nullptr) {
+//			throw std::invalid_argument("Null pointer found for shape name");
+//		}
+//
+//		size_t shapeNameLength = strlen(sourceName) + 1;
+//		char* newShapeName = new char[shapeNameLength]; 
+//		strcpy_s(newShapeName, shapeNameLength, sourceName);
+//
+//		delete[] shapeName; 
+//		shapeName = newShapeName; 
+//
+//		origin.setX(shapeSource.getOrigin().getX());
+//		origin.setY(shapeSource.getOrigin().getY());
+//	}
+//	return *this;
+//}
+//
+//Shape::~Shape() {
+//	delete[] shapeName;
+//}
+//
+//const Point& Shape::getOrigin() const {
+//	return origin;
+//}
+//
+//const char* Shape::getName() const {
+//	return shapeName;
+//}
+//
+//void Shape::display() {
+//	cout << "Shape name: " << shapeName << "\n"
+//		<< "X-coordinate: " << origin.getX() << "\n"
+//		<< "Y-coordinate: " << origin.getY() << endl;
+//}
