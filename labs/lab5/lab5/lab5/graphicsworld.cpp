@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Point.h"
 #include "Shape.h"
-//#include "Square.h"
+#include "Square.h"
 //#include "Rectangle.h"
 
 using namespace std;
@@ -18,21 +18,20 @@ void GraphicsWorld::run() {
 	cout << "\nThe distance between m and n is again: " << Point::distance(m, n);
 #endif 
 
-#if 1
-	Shape shape1(6, 8, "shape1");
-	Shape shape2(9, 8, "shape2");
-	shape1.move(6, 9);
-	cout << "testing move," << endl;
-	shape1.display();
+//#if 0
+//	Shape shape1(6, 8, "shape1");
+//	Shape shape2(9, 8, "shape2");
+//	shape1.move(6, 9);
+//	cout << "testing move," << endl;
+//	shape1.display();
+//
+//#endif
 
-#endif
-
-#if 0 // Change 0 to 1 to test Square
-// Assuming the existence of Square class and its methods
-// std::cout << "\n\nTesting Functions in class Square:" << std::endl;
-// Square s(5, 7, 12, "SQUARE - S");
-// s.display();
-#endif // end of block to test Square
+//#if 1
+//	cout << "\n\nTesting Functions in class Square:" << endl;
+//	Square s(5, 7, 12, "SQUARE - S");
+//	s.display();
+//#endif
 
 #if 0 // Change 0 to 1 to test Rectangle
 // Assuming the existence of Rectangle class and its methods
