@@ -8,30 +8,22 @@
 using namespace std;
 
 void GraphicsWorld::run() {
-#if 0
+#if 0 // Change 0 to 1 to test Point
 	Point m(6, 8);
 	Point n(6, 8);
-	n.setX(9);
-	cout << "\nExpected to display the distance between m and n is: 3";
+	n.setx(9);
+	cout << "\nExpected to dispaly the distance between m and n is: 3";
 	cout << "\nThe distance between m and n is: " << m.distance(n);
-	cout << "\nExpected second version of the distance function also prints: 3";
-	cout << "\nThe distance between m and n is again: " << Point::distance(m, n);
-#endif 
+	cout << "\nExpected second version of the distance function also print: 3";
+	cout << "\nThe distance between m and n is again: "
+		<< Point::distance(m, n);
+#endif // end of block to test Point
 
-//#if 0
-//	Shape shape1(6, 8, "shape1");
-//	Shape shape2(9, 8, "shape2");
-//	shape1.move(6, 9);
-//	cout << "testing move," << endl;
-//	shape1.display();
-//
-//#endif
-
-//#if 1
-//	cout << "\n\nTesting Functions in class Square:" << endl;
-//	Square s(5, 7, 12, "SQUARE - S");
-//	s.display();
-//#endif
+#if 1 // Change 0 to 1 to test Square
+	cout << "\n\nTesting Functions in class Square:" << endl;
+	Square s(5, 7, 12, "SQUARE - S");
+	s.display();
+#endif
 
 #if 0 // Change 0 to 1 to test Rectangle
 // Assuming the existence of Rectangle class and its methods
