@@ -12,19 +12,19 @@ double Circle::getLength() const {
 	return radius;
 }
 
-double Circle::getArea() {
+double Circle::area() {
 	return M_PI * radius * radius;
 }
 
-double Circle::getPerimeter() {
+double Circle::perimeter() {
 	return 2 * M_PI * radius;
 }
 
 void Circle::display() {
-	cout << "Rectange Name: " << shapeName <<
+	cout << "Circle Name: " << shapeName <<
 		"\nX - coordinate: " << getOrigin().getX() <<
 		"\nY - coordinate " << getOrigin().getY() <<
 		"\nradius : " << radius <<
-		"\nArea: " << getArea() <<
-		"\nPerimeter: " << getPerimeter() << endl << endl;
+		"\nArea: " << area() <<
+		"\nPerimeter: " << perimeter() << endl << endl;
 }

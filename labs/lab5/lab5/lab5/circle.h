@@ -6,14 +6,8 @@ class Circle : virtual public Shape {
 protected:
 	double radius;
 
-	double getArea();
-	// PROMISES: get Circle area
-
 	double getLength() const;
 	// PROMISES: returns Circle length
-
-	double getPerimeter();
-	// PROMISES: returns Circle perimiter
 
 public:
 	Circle(double x, double y, double r, const char* s);
@@ -21,5 +15,11 @@ public:
 
 	void display();
 	// PROMISES: displays name, x, and y coordinate, side length
+
+	double area();
+	// PROMISES: get Circle area
+
+	double perimeter();
+	// PROMISES: returns Circle perimiter
 };
 #endif

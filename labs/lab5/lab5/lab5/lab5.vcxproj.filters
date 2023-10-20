@@ -36,6 +36,9 @@
     <ClCompile Include="circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="curvecut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="point.h">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="circle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="curvecut.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

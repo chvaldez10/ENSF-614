@@ -2,7 +2,7 @@
 
 #ifndef SQUARE_H
 #define SQUARE_H
-class Square : public Shape{
+class Square : virtual public Shape{
 protected:
 	double side_a;
 
