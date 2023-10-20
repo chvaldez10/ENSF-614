@@ -5,13 +5,14 @@
 class Square : public Shape{
 protected:
 	double side_a;
+
 	double getArea();
 	// PROMISES: get square area
 
 	double getLength() const;
 	// PROMISES: returns square length
 
-	double getPerimeter() const;
+	double getPerimeter();
 	// PROMISES: returns square perimiter
 
 public:

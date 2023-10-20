@@ -15,12 +15,13 @@ double Square::getLength() const {
 	return side_a;
 }
 
-double Square::getPerimeter() const {
+double Square::getPerimeter() {
 	return 4 * side_a;
 }
 
 void Square::display() {
-	cout << "X - coordinate: " << getOrigin().getX() << 
+	cout << "Square Name: " << shapeName <<
+		"\nX - coordinate: " << getOrigin().getX() << 
 		"\nY - coordinate " << getOrigin().getY() <<
 		"\nSide a : " << side_a <<
 		"\nArea: " << getArea() <<
