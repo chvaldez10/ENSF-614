@@ -19,17 +19,18 @@ private:
 
 public:
 	Point(double pX, double pY);
-	// PROMISES: point initializes point x and y coordinates 
-	//			 using the given input
+	// PROMISES: Initializes point with x and y coordinates using the provided pX and pY values.
 
 	Point(const Point& pointSource);
-	// PROMISES: safe copy for Point
+	// REQUIRES: pointSource must be a valid, initialized Point object.
+	// PROMISES: Constructs a new Point, making a safe copy of pointSource.
 
 	Point& operator = (const Point& pointSource);
-	// PROMISES: safe copy for Point
+	// REQUIRES: pointSource must be a valid, initialized Point object.
+	// PROMISES: Safely copies the data from pointSource to this Point object.
 
 	~Point();
-	// PROMISES: destroys point object
+	// PROMISES: Destroys the Point object and releases any resources.
 
 	void setx(double x);
 	// PROMISES: sets new values for x coordinate
