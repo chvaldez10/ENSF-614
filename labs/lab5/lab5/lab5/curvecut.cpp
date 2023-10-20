@@ -8,20 +8,13 @@ using namespace std;
 
 CurveCut::CurveCut(double x, double y, double a, double b, double r, const char* s) : Shape(x, y, s), Circle(x, y, r, s), Rectangle(x, y, a, b, s) { }
 
-double CurveCut::getArea() {
-	return Rectangle::getArea() - 0.25 * Circle::area();
+double CurveCut::area() {
+	return Rectangle::area() - 0.25 * Circle::area();
 }
 
-double CurveCut::getPerimeter() {
-	return Rectangle::getPerimeter() - (2 * radius + Circle::perimeter()*0.25);
+double CurveCut::perimeter() {
+	return Rectangle::perimeter() - (2 * radius + Circle::perimeter()*0.25);
 }
-
-//CurveCut Name :
-//X - coordinate :
-//	Y - coordinate :
-//	Width :
-//	Length :
-//	Radius of the cut
 
 void CurveCut::display() {
 	cout << "CurveCut Name: " << shapeName <<

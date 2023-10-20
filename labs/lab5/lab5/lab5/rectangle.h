@@ -6,12 +6,6 @@ class Rectangle : public Square {
 protected:
 	double side_b;
 
-	double getArea();
-	// PROMISES: get Rectangle area
-
-	double getPerimeter();
-	// PROMISES: returns Rectangle perimiter
-
 public:
 	Rectangle(double x, double y, double sideA, double sideB, const char* s);
 	// PROMISES: initializes Rectangle object
@@ -24,5 +18,12 @@ public:
 
 	void display();
 	// PROMISES: displays name, x, and y coordinate, side length
+
+	double area();
+	// PROMISES: get Rectangle area
+
+	double perimeter();
+	// PROMISES: returns Rectangle perimiter
+
 };
 #endif

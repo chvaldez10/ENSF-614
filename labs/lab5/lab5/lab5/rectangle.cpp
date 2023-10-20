@@ -15,7 +15,7 @@ Rectangle::Rectangle(double x, double y, double sideA, double sideB, const char*
 	// constructor body
 }
 
-double Rectangle::getArea() {
+double Rectangle::area() {
 	return side_b * side_a;
 }
 
@@ -27,7 +27,7 @@ void Rectangle::set_side_a(double num) {
 	side_a = num;
 }
 
-double Rectangle::getPerimeter() {
+double Rectangle::perimeter() {
 	return 2 * (side_a + side_b);
 }
 
@@ -37,6 +37,6 @@ void Rectangle::display() {
 		"\nY - coordinate " << getOrigin().getY() <<
 		"\nSide a : " << side_a <<
 		"\nSide b : " << side_b <<
-		"\nArea: " << getArea() <<
-		"\nPerimeter: " << getPerimeter() << endl << endl;
+		"\nArea: " << area() <<
+		"\nPerimeter: " << perimeter() << endl << endl;
 }

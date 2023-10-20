@@ -60,20 +60,20 @@ void GraphicsWorld::run() {
 	cout << "\nIf it doesn't there is a problem with your assignment operator.\n" << endl;
 	rec3.display();
 
-#endif // end of block to test Rectangle
-
-#if 1 // Change 0 to 1 to test using array of pointer and polymorphism
-	cout << "\nTesting array of pointers and polymorphism:" << endl;
-	Shape* sh[4];
-	sh[0] = &s;
-	sh[1] = &b;
-	sh[2] = &rec1;
-	sh[3] = &rec3;
-	sh[0]->display();
-	sh[1]->display();
-	sh[2]->display();
-	sh[3]->display();
 #endif 
+
+//#if 0 // Change 0 to 1 to test using array of pointer and polymorphism
+//	cout << "\nTesting array of pointers and polymorphism:" << endl;
+//	Shape* sh[4];
+//	sh[0] = &s; // square
+//	sh[1] = &b; // rectangle
+//	sh[2] = &rec1;
+//	sh[3] = &rec3;
+//	sh[0]->display();
+//	sh[1]->display();
+//	sh[2]->display();
+//	sh[3]->display();
+//#endif 
 
 
 #if 1
@@ -94,30 +94,30 @@ void GraphicsWorld::run() {
 	cout << "\nThe distance between rc and c is: " << d;
 	// Using array of Shape pointers:
 	Shape* sh[4];
-	sh[0] = &s;
-	sh[1] = &a;
+	sh[0] = &s; //square
+	sh[1] = &a; //rectangle
 	sh[2] = &c;
 	sh[3] = &rc;
 	sh[0]->display();
-	//cout << "\nthe area of " << sh[0]->getName() << "is: " << sh[0]->area();
-	//cout << "\nthe perimeter of " << sh[0]->getName() << " is: " << sh[0]->perimeter();
-	//sh[1]->display();
-	//cout << "\nthe area of " << sh[1]->getName() << "is: " << sh[1]->area();
-	//cout << "\nthe perimeter of " << sh[0]->getName() << " is: " << sh[1]->perimeter();
-	//sh[2]->display();
-	//cout << "\nthe area of " << sh[2]->getName() << "is: " << sh[2]->area();
-	//cout << "\nthe circumference of " << sh[2]->getName() << " is: " << sh[2]->perimeter();
-	//sh[3]->display();
-	//cout << "\nthe area of " << sh[3]->getName() << "is: " << sh[3]->area();
-	//cout << "\nthe perimeter of " << sh[3]->getName() << " is: " << sh[3]->perimeter();
-	//cout << "\nTesting copy constructor in class CurveCut:" << endl;
-	//CurveCut cc = rc;
-	//cc.display();
-	//cout << "\nTesting assignment operator in class CurveCut:" << endl;
-	//CurveCut cc2(2, 5, 100, 12, 9, "CurveCut cc2");
-	//cc2.display();
-	//cc2 = cc;
-	//cc2.display();
+	cout << "\nthe area of " << sh[0]->getName() << "is: " << sh[0]->area();
+	cout << "\nthe perimeter of " << sh[0]->getName() << " is: " << sh[0]->perimeter();
+	sh[1]->display();
+	cout << "\nthe area of " << sh[1]->getName() << "is: " << sh[1]->area();
+	cout << "\nthe perimeter of " << sh[0]->getName() << " is: " << sh[1]->perimeter();
+	sh[2]->display();
+	cout << "\nthe area of " << sh[2]->getName() << "is: " << sh[2]->area();
+	cout << "\nthe circumference of " << sh[2]->getName() << " is: " << sh[2]->perimeter();
+	sh[3]->display();
+	cout << "\nthe area of " << sh[3]->getName() << "is: " << sh[3]->area();
+	cout << "\nthe perimeter of " << sh[3]->getName() << " is: " << sh[3]->perimeter();
+	cout << "\nTesting copy constructor in class CurveCut:" << endl;
+	CurveCut cc = rc;
+	cc.display();
+	cout << "\nTesting assignment operator in class CurveCut:" << endl;
+	CurveCut cc2(2, 5, 100, 12, 9, "CurveCut cc2");
+	cc2.display();
+	cc2 = cc;
+	cc2.display();
 #endif
 }
 

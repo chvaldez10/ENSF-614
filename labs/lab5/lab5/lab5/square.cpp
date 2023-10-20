@@ -13,7 +13,7 @@ Square::Square(double x, double y, double length, const char* s) : Shape(x, y, s
 }
 
 
-double Square::getArea() {
+double Square::area() {
 	return side_a * side_a;
 }
 
@@ -21,7 +21,7 @@ double Square::getLength() const {
 	return side_a;
 }
 
-double Square::getPerimeter() {
+double Square::perimeter() {
 	return 4 * side_a;
 }
 
@@ -30,6 +30,6 @@ void Square::display() {
 		"\nX - coordinate: " << getOrigin().getX() << 
 		"\nY - coordinate " << getOrigin().getY() <<
 		"\nSide a : " << side_a <<
-		"\nArea: " << getArea() <<
-		"\nPerimeter: " << getPerimeter() << endl;
+		"\nArea: " << area() <<
+		"\nPerimeter: " << perimeter() << endl;
 }

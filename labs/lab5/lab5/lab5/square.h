@@ -6,18 +6,18 @@ class Square : virtual public Shape{
 protected:
 	double side_a;
 
-	double getArea();
-	// PROMISES: get square area
-
 	double getLength() const;
 	// PROMISES: returns square length
-
-	double getPerimeter();
-	// PROMISES: returns square perimiter
 
 public:
 	Square(double x, double y, double length, const char* s);
 	// PROMISES: initializes square object
+
+	double perimeter();
+	// PROMISES: returns square perimiter
+
+	double area();
+	// PROMISES: get square area
 
 	void display();
 	// PROMISES: displays name, x, and y coordinate, side length

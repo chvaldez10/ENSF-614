@@ -40,5 +40,12 @@ public:
 	void move(double dx, double dy);
 	// PROMISES: shifts Point x and y coordinates
 
+	virtual double area() = 0;
+	// PROMISES: get area
+
+	virtual double perimeter() = 0;
+	// PROMISES: returns perimiter
+
+
 };
 #endif
