@@ -21,8 +21,8 @@ double Square::getPerimeter() const {
 
 void Square::display() {
 	cout << "X - coordinate: " << getOrigin().getX() << 
-		"Y - coordinate" << getOrigin().getY() <<
-		"Side a : " << side_a <<
-		"Area: " << getArea() <<
-		"Perimeter" << getPerimeter() << endl;
+		"\nY - coordinate " << getOrigin().getY() <<
+		"\nSide a : " << side_a <<
+		"\nArea: " << getArea() <<
+		"\nPerimeter: " << getPerimeter() << endl;
 }

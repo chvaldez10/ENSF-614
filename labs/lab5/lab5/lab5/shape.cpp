@@ -41,8 +41,7 @@ Shape& Shape::operator=(Shape& shapeSource) {
 		delete[] shapeName; 
 		shapeName = newShapeName; 
 
-		origin.setX(shapeSource.getOrigin().getX());
-		origin.setY(shapeSource.getOrigin().getY());
+		origin = shapeSource.getOrigin();
 	}
 	return *this;
 }
@@ -70,7 +69,7 @@ double Shape::distance(const Shape& s) {
 }
 
 double Shape::distance(const Shape& s1, const Shape& s2) {
-	return s1.getOrigin().distance(s1.getOrigin(), s2.getOrigin());
+	return Point::distance(s1.getOrigin(), s2.getOrigin());
 }
 
 void Shape::move(double dx, double dy) {
