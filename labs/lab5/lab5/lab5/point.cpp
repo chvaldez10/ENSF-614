@@ -42,7 +42,7 @@ Point::~Point() {
 	numOfPoints--;
 }
 
-void Point::setX(double x) {
+void Point::setx(double x) {
 	this->x = x;
 }
 

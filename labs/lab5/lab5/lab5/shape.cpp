@@ -73,6 +73,6 @@ double Shape::distance(const Shape& s1, const Shape& s2) {
 }
 
 void Shape::move(double dx, double dy) {
-	origin.setX(origin.getX() + dx);
+	origin.setx(origin.getX() + dx);
 	origin.setY(origin.getY() + dy);
 }

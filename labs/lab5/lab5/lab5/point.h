@@ -31,7 +31,7 @@ public:
 	~Point();
 	// PROMISES: destroys point object
 
-	void setX(double x);
+	void setx(double x);
 	// PROMISES: sets new values for x coordinate
 
 	void setY(double y);

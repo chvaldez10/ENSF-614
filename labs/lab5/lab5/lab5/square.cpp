@@ -5,7 +5,13 @@
 
 using namespace std;
 
-Square::Square(double x, double y, double length, const  char* s) : Shape(x, y, s), side_a(length) { }
+Square::Square(double x, double y, double length, const char* s) : Shape(x, y, s) {
+	if (length <= 0) {
+		throw std::invalid_argument("Side length must be positive.");
+	}
+	side_a = length;
+}
+
 
 double Square::getArea() {
 	return side_a * side_a;

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="circle.cpp" />
     <ClCompile Include="graphicsworld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="point.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="square.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="circle.h" />
     <ClInclude Include="graphicsworld.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="rectangle.h" />

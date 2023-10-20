@@ -5,7 +5,15 @@
 
 using namespace std;
 
-Rectangle::Rectangle(double x, double y, double sideA, double sideB, const char* s) : Square(x, y, sideA, s), side_b(sideB) {}
+Rectangle::Rectangle(double x, double y, double sideA, double sideB, const char* s) : Square(x, y, sideA, s), side_b(sideB) { }
+
+//Rectangle::Rectangle(double x, double y, double sideA, double sideB, const char* s)
+//	: Shape(x, y, s),  // explicitly call Shape's constructor
+//	Square(x, y, sideA, s),  // call Square's constructor
+//	side_b(sideB)
+//{
+//	// constructor body
+//}
 
 double Rectangle::getArea() {
 	return side_b * side_a;
