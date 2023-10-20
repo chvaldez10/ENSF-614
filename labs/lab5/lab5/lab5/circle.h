@@ -16,7 +16,7 @@ protected:
 	// PROMISES: returns Circle perimiter
 
 public:
-	Circle(double x, double y, double length, const char* s);
+	Circle(double x, double y, double r, const char* s);
 	// PROMISES: initializes Circle object
 
 	void display();
