@@ -13,7 +13,7 @@ double CurveCut::area() {
 }
 
 double CurveCut::perimeter() {
-	return Rectangle::perimeter() - (2 * radius + Circle::perimeter()*0.25);
+	return Rectangle::perimeter() - (2 * radius) + Circle::perimeter()*0.25;
 }
 
 void CurveCut::display() {

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Circle::Circle(double x, double y, double r, const char* s) : Shape(x, y, s), radius(r) { }
+Circle::Circle(double x, double y, double r, const char* s) : Shape(x, y, s), radius(r > 0 ? r : 0) { }
 
 double Circle::getLength() const {
 	return radius;

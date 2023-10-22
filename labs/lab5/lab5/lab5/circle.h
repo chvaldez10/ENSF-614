@@ -11,15 +11,21 @@ protected:
 
 public:
 	Circle(double x, double y, double r, const char* s);
-	// PROMISES: initializes Circle object
+	// REQUIRES: 
+	// r should be a non-negative value within the valid range of double, representing the radius of the Circle.
+	// s should be a valid pointer to a null-terminated string, representing the name of the Circle.
+	// PROMISES: Initializes a Circle object with position (x, y), radius r, and name provided by 's'.
 
 	void display();
-	// PROMISES: displays name, x, and y coordinate, side length
+	// REQUIRES: Circle object must be initialized.
+	// PROMISES: Displays the name, x and y coordinates, and radius of the Circle in a human-readable format.
 
 	double area();
-	// PROMISES: get Circle area
+	// REQUIRES: Circle object must be initialized.
+	// PROMISES: Calculates and returns the area of the Circle.
 
 	double perimeter();
-	// PROMISES: returns Circle perimiter
+	// REQUIRES: Circle object must be initialized.
+	// PROMISES: Calculates and returns the perimeter (circumference) of the Circle.
 };
 #endif
