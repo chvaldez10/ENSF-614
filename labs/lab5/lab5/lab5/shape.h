@@ -15,7 +15,7 @@ public:
 	Shape(const Shape& shapeSource);
 	// PROMISES: safe copy for Shape
 
-	Shape& operator=(Shape& shapeSource);
+	Shape& operator=(const Shape& shapeSource);
 	// PROMISES: safe copy for Shape
 	//			 and destroys memory allocated string
 

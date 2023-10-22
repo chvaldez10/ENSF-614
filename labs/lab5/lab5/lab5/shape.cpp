@@ -28,7 +28,7 @@ Shape::Shape(const Shape& shapeSource) : origin(shapeSource.getOrigin()) {
 
 }
 
-Shape& Shape::operator=(Shape& shapeSource) {
+Shape& Shape::operator=(const Shape& shapeSource) {
 	if (this != &shapeSource) {
 		const char* sourceName = shapeSource.getName();
 

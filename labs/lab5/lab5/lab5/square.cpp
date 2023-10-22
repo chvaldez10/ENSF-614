@@ -13,6 +13,17 @@ Square::Square(double x, double y, double length, const char* s) : Shape(x, y, s
 	side_a = length;
 }
 
+Square::Square(const Square& squareSource) : Shape(squareSource), side_a(squareSource.side_a) { }
+
+Square& Square::operator=(const Square& squareSource) {
+	if (this != &squareSource) {
+		Shape::operator=(squareSource);
+		side_a = squareSource.side_a;
+	}
+	return *this;
+}
+
+Square::~Square() {}
 
 double Square::area() {
 	return side_a * side_a;

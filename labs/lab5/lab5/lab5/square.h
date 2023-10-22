@@ -26,6 +26,12 @@ public:
 	// s should be a valid pointer to a null-terminated string, representing the name of the Square.
 	// PROMISES: Initializes a Square object with position (x, y), side length, and name provided by 's'.
 
+	Square(const Square& squareSource);
+
+	Square& operator=(const Square& squareSource);
+
+	virtual ~Square();
+
 	double perimeter();
 	// REQUIRES: Square object must be initialized.
 	// PROMISES: Calculates and returns the perimeter of the Square.

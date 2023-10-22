@@ -38,10 +38,10 @@ void Rectangle::set_side_b(double num) {
 void Rectangle::set_side_a(double num) {
 	if (num < 0) {
 		cerr << "Side length must be non-negative. Setting to zero instead." << endl;
-		set_side_a(0); 
+		side_a = 0;
 	}
 	else {
-		set_side_a(num); 
+		side_a = num;
 	}
 }
 
