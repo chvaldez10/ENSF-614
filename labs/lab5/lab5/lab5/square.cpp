@@ -5,9 +5,10 @@
 
 using namespace std;
 
-Square::Square(double x, double y, double length, const char* s) : Shape(x, y, s) {
+Square::Square(double x, double y, double length, const char* s) : Shape(x, y, s) // explicitly call Shape's constructor 
+{
 	if (length <= 0) {
-		throw std::invalid_argument("Side length must be positive.");
+		throw invalid_argument("Side length must be positive.");
 	}
 	side_a = length;
 }

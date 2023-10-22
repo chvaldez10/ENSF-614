@@ -22,12 +22,12 @@ Point::Point(double pX, double pY) : x(pX), y(pY), id(idStart+numOfPoints){
 
 Point& Point::operator=(const Point& pointSource) {
 	if (this == &pointSource) {
-		return *this; // handle self assignment
+		return *this;
 	}
-	// Individual member assignment
 	x = pointSource.x;
 	y = pointSource.y;
-	// id should not be copied; it's unique to each instance
+	// should id be copied ? I think the id value should retain
+	//id = pointSource.id; 
 
 	return *this; // Return a reference to the current instance
 }
@@ -77,7 +77,6 @@ double Point::distance(const Point& p) const {
 	return sqrt(deltaX * deltaX + deltaY * deltaY);
 }
 
-// This should be declared static in the header file
 double Point::distance(const Point& p1, const Point& p2) {
 	double deltaX = p1.getX() - p2.getX();
 	double deltaY = p1.getY() - p2.getY();

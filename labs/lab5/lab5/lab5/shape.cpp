@@ -12,11 +12,12 @@ Shape::Shape(double x, double y, const char* s) : origin(x, y) {
 
 	size_t stringLength = strlen(s)+1;
 	shapeName = new char[stringLength];
-	strcpy_s(shapeName, stringLength, s);
+	strcpy_s(shapeName, stringLength, s); // strcpy_s doesnt work on the suggested Cygwin compiler
 }
 
 Shape::Shape(const Shape& shapeSource) : origin(shapeSource.getOrigin()) {
 	const char* sourceName = shapeSource.getName();
+
 	if (sourceName == nullptr) {
 		throw invalid_argument("Null pointer found for shape name");
 	}
@@ -30,6 +31,7 @@ Shape::Shape(const Shape& shapeSource) : origin(shapeSource.getOrigin()) {
 Shape& Shape::operator=(Shape& shapeSource) {
 	if (this != &shapeSource) {
 		const char* sourceName = shapeSource.getName();
+
 		if (sourceName == nullptr) {
 			throw std::invalid_argument("Null pointer found for shape name");
 		}
@@ -37,10 +39,8 @@ Shape& Shape::operator=(Shape& shapeSource) {
 		size_t shapeNameLength = strlen(sourceName) + 1;
 		char* newShapeName = new char[shapeNameLength]; 
 		strcpy_s(newShapeName, shapeNameLength, sourceName);
-
 		delete[] shapeName; 
 		shapeName = newShapeName; 
-
 		origin = shapeSource.getOrigin();
 	}
 	return *this;
