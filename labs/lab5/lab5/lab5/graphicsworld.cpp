@@ -62,18 +62,18 @@ void GraphicsWorld::run() {
 
 #endif 
 
-//#if 0 // Change 0 to 1 to test using array of pointer and polymorphism
-//	cout << "\nTesting array of pointers and polymorphism:" << endl;
-//	Shape* sh[4];
-//	sh[0] = &s; // square
-//	sh[1] = &b; // rectangle
-//	sh[2] = &rec1;
-//	sh[3] = &rec3;
-//	sh[0]->display();
-//	sh[1]->display();
-//	sh[2]->display();
-//	sh[3]->display();
-//#endif 
+#if 0 // Change 0 to 1 to test using array of pointer and polymorphism
+	cout << "\nTesting array of pointers and polymorphism:" << endl;
+	Shape* sh[4];
+	sh[0] = &s; // square
+	sh[1] = &b; // rectangle
+	sh[2] = &rec1;
+	sh[3] = &rec3;
+	sh[0]->display();
+	sh[1]->display();
+	sh[2]->display();
+	sh[3]->display();
+#endif 
 
 
 #if 1
@@ -81,15 +81,15 @@ void GraphicsWorld::run() {
 	Circle c(3, 5, 9, "CIRCLE C");
 	c.display();
 	cout << "the area of " << c.getName() << " is: " << c.area() << endl;
-	cout << "the perimeter of " << c.getName() << " is: " << c.perimeter() << endl << endl;
+	cout << "the perimeter of " << c.getName() << " is: " << c.perimeter() << endl;
 	d = a.distance(c);
 	cout << "\nThe distance between rectangle a and circle c is: " << d;
 
-	cout << "Testing Functions in class CurcveCut:" << endl;
+	cout << "\n\nTesting Functions in class CurcveCut:" << endl;
 	CurveCut rc(6, 5, 10, 12, 9, "CurveCut rc");
 	rc.display();
 	cout << "the area of " << rc.getName() << " is: " << rc.area();
-	cout << " and the perimeter of " << rc.getName() << " is: " << rc.perimeter() << endl << endl;
+	cout << " and the perimeter of " << rc.getName() << " is: " << rc.perimeter() << endl;
 	d = rc.distance(c);
 	cout << "\nThe distance between rc and c is: " << d;
 	// Using array of Shape pointers:

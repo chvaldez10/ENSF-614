@@ -8,6 +8,18 @@ using namespace std;
 
 CurveCut::CurveCut(double x, double y, double a, double b, double r, const char* s) : Shape(x, y, s), Circle(x, y, r, s), Rectangle(x, y, a, b, s) { }
 
+CurveCut::CurveCut(const CurveCut& cutSource) : Shape(cutSource), Circle(cutSource), Rectangle(cutSource) {}
+
+CurveCut& CurveCut::operator=(const CurveCut& cutSource) {
+	if (this != &cutSource) {
+		Rectangle::operator=(cutSource);
+		Circle::operator=(cutSource);
+	}
+	return *this;
+}
+
+CurveCut::~CurveCut() {}
+
 double CurveCut::area() {
 	return Rectangle::area() - 0.25 * Circle::area();
 }

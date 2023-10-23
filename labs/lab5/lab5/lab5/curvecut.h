@@ -13,6 +13,17 @@ public:
 	// s should be a valid pointer to a null-terminated string, representing the name of the CurveCut.
 	// PROMISES: Initializes a CurveCut object with position (x, y), Rectangle sides (a, b), Circle radius r, and name provided by 's'.
 
+	CurveCut(const CurveCut& cutSource);
+	// REQUIRES: cutSource must be a valid, initialized CurveCut object.
+	// PROMISES: Creates a new CurveCut object with the same properties as CurveCutSource. Performs a deep copy if there are resources that require it.
+
+	CurveCut& operator=(const CurveCut& cutSource);
+	// REQUIRES: cutSource must be a valid, initialized CurveCut object.
+	// PROMISES: Creates a new CurveCut object with the same properties as CurveCutSource. Performs a deep copy if there are resources that require it.
+
+	virtual ~CurveCut();
+	// PROMISES: Destroys the CurveCut object and releases any resources it has acquired.
+
 	double area();
 	// REQUIRES: CurveCut object must be initialized.
 	// PROMISES: Calculates and returns the area of the CurveCut, which is the area of the Rectangle minus the area of the quarter Circle.
