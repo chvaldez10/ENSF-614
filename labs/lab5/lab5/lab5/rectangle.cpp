@@ -22,6 +22,20 @@ Rectangle::Rectangle(double x, double y, double sideA, double sideB, const char*
 	}
 }
 
+Rectangle::Rectangle(const Rectangle& rectangleSource) : Shape(rectangleSource), Square(rectangleSource), side_b(rectangleSource.side_b) { }
+
+Rectangle& Rectangle::operator=(const Rectangle& rectangleSource) {
+	if (this != &rectangleSource) {
+		Shape::operator=(rectangleSource);
+		Square::operator=(rectangleSource);
+		side_b = rectangleSource.side_b;
+	}
+
+	return *this;
+}
+
+Rectangle::~Rectangle() {}
+
 double Rectangle::area() {
 	return side_b * side_a;
 }

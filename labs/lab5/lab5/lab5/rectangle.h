@@ -13,6 +13,17 @@ public:
 	// s should be a valid pointer to a null-terminated string, representing the name of the Rectangle.
 	// PROMISES: Initializes a Rectangle object with position (x, y), side lengths (sideA and sideB), and name provided by 's'.
 
+	Rectangle(const Rectangle& rectangleSource);
+	// REQUIRES: rectangleSource must be a valid, initialized Rectangle object.
+	// PROMISES: Creates a new Rectangle object with the same properties as rectangleSource. Performs a deep copy if there are resources that require it.
+
+	Rectangle& operator=(const Rectangle& rectangleSource);
+	// REQUIRES: rectangleSource must be a valid, initialized Rectangle object.
+	// PROMISES: Creates a new Rectangle object with the same properties as rectangleSource. Performs a deep copy if there are resources that require it.
+
+	virtual ~Rectangle();
+	// PROMISES: Destroys the Rectangle object and releases any resources it has acquired.
+
 	void set_side_b(double num);
 	// REQUIRES: num should be a non-negative value within the valid range of double.
 	// PROMISES: Sets a new length for side_b of the Rectangle.
