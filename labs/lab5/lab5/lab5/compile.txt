@@ -1,6 +1,0 @@
-c:
-cd C:/Users/chris/Documents/MEng/ENSF 614/labs/lab5/lab5/lab5
-
-g++ -o shapes main.cpp circle.cpp graphicsworld.cpp point.cpp rectangle.cpp shape.cpp curvecut.cpp square.cpp
-
-./shapes.exe

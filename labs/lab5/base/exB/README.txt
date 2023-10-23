@@ -1,1 +1,0 @@
-add completed exercise B here.
