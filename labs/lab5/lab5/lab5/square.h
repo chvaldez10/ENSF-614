@@ -27,10 +27,16 @@ public:
 	// PROMISES: Initializes a Square object with position (x, y), side length, and name provided by 's'.
 
 	Square(const Square& squareSource);
+	// REQUIRES: squareSource must be a valid, initialized Square object.
+	// PROMISES: Creates a new Square object with the same properties as squareSource.Performs a deep copy if there are resources that require it.
 
 	Square& operator=(const Square& squareSource);
+	// Copy Assignment Operator
+	// REQUIRES: squareSource must be a valid, initialized object.
+	// PROMISES: Replaces the current Square object's properties with those of squareSource. Performs a deep copy if there are resources that require it.
 
 	virtual ~Square();
+	// PROMISES: Destroys the Square object and releases any resources it has acquired.
 
 	double perimeter();
 	// REQUIRES: Square object must be initialized.
