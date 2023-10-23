@@ -8,6 +8,18 @@ using namespace std;
 
 Circle::Circle(double x, double y, double r, const char* s) : Shape(x, y, s), radius(r > 0 ? r : 0) { }
 
+Circle::Circle(const Circle& circleSource) : Shape(circleSource), radius(circleSource.radius) {}
+
+Circle& Circle::operator=(const Circle& circleSource) {
+	if (this != &circleSource) {
+		Shape::operator=(circleSource);
+		radius = circleSource.radius;
+	}
+	return *this;
+}
+
+Circle::~Circle() {}
+
 double Circle::getLength() const {
 	return radius;
 }
