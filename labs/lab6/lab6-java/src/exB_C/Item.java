@@ -1,3 +1,4 @@
+package exB_C;
 public class Item<E extends Number & Comparable<E>> {
 	private E item;
 

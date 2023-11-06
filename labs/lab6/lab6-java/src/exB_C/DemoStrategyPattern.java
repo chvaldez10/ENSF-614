@@ -1,6 +1,6 @@
-
-
+package exB_C;
 import java.util.Random;
+
 public class DemoStrategyPattern {
 	public static void main(String[] args) {
 		// Create an object of MyVector<Double> with capacity of 50 elements
