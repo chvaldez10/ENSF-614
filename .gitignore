@@ -23,7 +23,6 @@
 *.exe
 *.out
 *.app
-*.so
 
 # Debug files
 *.dSYM/
@@ -67,14 +66,7 @@ AppPackages/
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
 
-# Uncomment if necessary
-# *.dbmdl
-# *.dbproj.schemaview
-# *.pfx
-# *.publishsettings
-
 # Miscellaneous
-*.class
 *.cache
 *.log
 *.swp
@@ -85,3 +77,46 @@ AppPackages/
 
 # macOS generated files
 .DS_Store
+
+# IntelliJ IDEA Specific
+.idea/
+*.iml
+*.iws
+
+# Java specific
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+
+# Virtual Machine Crash Logs, if present
+hs_err_pid*
+
+# Avoid ignoring Gradle wrapper script (uncomment if using Gradle)
+#!gradlew
+#!gradlew.bat
+
+# Avoid ignoring Gradle wrapper jar file (uncomment if using Gradle)
+#!gradle/wrapper/gradle-wrapper.jar
