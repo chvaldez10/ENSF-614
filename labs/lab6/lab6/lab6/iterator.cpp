@@ -103,6 +103,17 @@ int Vector::VectIter::operator++(int) {
 	return ret;
 }
 
+int Vector::VectIter::operator--(int) {
+	int ret = v->array[index];
+	index--;
+
+	if (index < 0) {
+		index = v->size-1;
+	}
+
+	return ret;
+}
+
 /***********************************************************************
  *
  *								Vector
@@ -171,9 +182,9 @@ int main() {
 		for (int i=0; i<3 ; i++)
 			cout << endl << ++iter;	
 	
-		//cout << "\n\ntesting postfix --";
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << iter--;
+		cout << "\n\ntesting postfix --";
+		for (int i=0; i<3 ; i++)
+			cout << endl << iter--;
 	
 		//cout << endl;
 	
