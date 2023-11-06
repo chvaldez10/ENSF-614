@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template <typename T>
+template <class T>
 class Vector {
 public:
 	class VectIter {
@@ -80,12 +80,12 @@ private:
 *
 ***********************************************************************/
 
-template <typename T>
+template <class T>
 T& Vector<T>::operator[](int i){
 	return array[i];
 }
 
-template <typename T>
+template <class T>
 void Vector<T>::ascending_sort() {
 	for (int i = 0; i < size - 1; i++)
 		for (int j = i + 1; j < size; j++)
@@ -93,7 +93,15 @@ void Vector<T>::ascending_sort() {
 				swap(array[i], array[j]);
 }
 
-template <typename T>
+template <>
+void Vector<Mystring>::ascending_sort() {
+	//for (int i = 0; i < size - 1; i++)
+	//	for (int j = i + 1; j < size; j++)
+	//		if (array[i] > array[j])
+	//			swap(array[i], array[j]);
+}
+
+template <class T>
 void Vector<T>::swap(T& a, T& b) {
 	T tmp = a;
 	a = b;
@@ -106,12 +114,12 @@ void Vector<T>::swap(T& a, T& b) {
  *
  ***********************************************************************/
 
-template <typename T>
+template <class T>
 T& Vector<T>::VectIter::operator*() {
 	return v->array[index];
 }
 
-template <typename T>
+template <class T>
 T& Vector<T>::VectIter::operator++() {
 	index++;
 	if (index >= v->size) {
@@ -120,7 +128,7 @@ T& Vector<T>::VectIter::operator++() {
 	return v->array[index];
 }
 
-template <typename T>
+template <class T>
 T Vector<T>::VectIter::operator++(int) {
 	T ret = v->array[index];
 	index++;
@@ -130,7 +138,7 @@ T Vector<T>::VectIter::operator++(int) {
 	return ret;
 }
 
-template <typename T>
+template <class T>
 T& Vector<T>::VectIter::operator--() {
 	if (index == 0) {
 		index = v->size;
@@ -139,7 +147,7 @@ T& Vector<T>::VectIter::operator--() {
 	return v->array[index];
 }
 
-template <typename T>
+template <class T>
 T Vector<T>::VectIter::operator--(int) {
 	T ret = v->array[index];
 	if (index == 0) {
