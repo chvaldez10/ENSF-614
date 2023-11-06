@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * The BubbleSort class provides a method to sort an array list of generic Items
+ * The BubbleSorter class provides a method to sort an array list of generic Items
  * using the bubble sort algorithm.
  */
-public class BubbleSort<E extends Number & Comparable<E>> implements Sorter<E> {
+public class BubbleSorter<E extends Number & Comparable<E>> implements Sorter<E> {
     /**
      * Sorts an array list of Items using bubble sort.
      *

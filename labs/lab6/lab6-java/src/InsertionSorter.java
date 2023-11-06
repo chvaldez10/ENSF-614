@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * This class provides a static method to sort an array of integers using
  * the insertion sort algorithm.
  */
-public class InsertionSort<E extends Number & Comparable<E>> implements Sorter<E> {
+public class InsertionSorter<E extends Number & Comparable<E>> implements Sorter<E> {
     /**
      * Sorts an ArrayList of Items in ascending order using insertion sort.
      *
