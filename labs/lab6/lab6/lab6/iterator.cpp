@@ -95,10 +95,10 @@ void Vector<T>::ascending_sort() {
 
 template <>
 void Vector<Mystring>::ascending_sort() {
-	//for (int i = 0; i < size - 1; i++)
-	//	for (int j = i + 1; j < size; j++)
-	//		if (array[i] > array[j])
-	//			swap(array[i], array[j]);
+	for (int i = 0; i < size - 1; i++)
+		for (int j = i + 1; j < size; j++)
+			if (strcmp(array[i].c_str(), array[j].c_str()) > 0)
+				swap(array[i], array[j]);
 }
 
 template <class T>
@@ -195,7 +195,7 @@ int main() {
 		for (int i=0; i<3 ; i++)
 			cout << endl << iter--;
 	
-		cout << endl;
+		cout << endl <<endl;
 	
 		cout << "Testing a <Mystring> Vector: " << endl;
 		Vector<Mystring> y(3);
@@ -204,24 +204,25 @@ int main() {
 		y[2] = "All";;
 	
 		Vector<Mystring>::VectIter iters(y);
+
+		cout << "\nTesting sort";
+		y.ascending_sort();
+		
+		cout << "\n\ntesting postfix ++";
+		for (int i=0; i<3 ; i++)
+			cout << endl << iters++.c_str();
 	
-		//cout << "\n\nTesting sort";
-		//y.ascending_sort();
+		cout << "\n\nTesting Prefix --:";
+		for (int i=0; i<3 ; i++)
+			cout << endl << (--iters).c_str();
 	
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << iters++;
+		cout << "\n\nTesting Prefix ++:";
+		for (int i=0; i<3 ; i++)
+			cout << endl << (++iters).c_str();
 	
-		//cout << "\n\nTesting Prefix --:";
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << --iters;
-	
-		//cout << "\n\nTesting Prefix ++:";
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << ++iters;
-	
-		//cout << "\n\nTesting Postfix --";
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << iters--;
+		cout << "\n\nTesting Postfix --";
+		for (int i=0; i<3 ; i++)
+			cout << endl << iters--.c_str();
 	
 		//cout << endl; cout << "Testing a <char *> Vector: " << endl;
 		//Vector<const char*> z(3);
