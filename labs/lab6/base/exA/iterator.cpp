@@ -7,202 +7,229 @@
 
 using namespace std;
 
-
 class Vector {
-public: 
-
-  class VectIter{
-    friend class Vector;
-  private:
-    Vector *v; // points to a vector object of type T
-    int index;    // represents the subscript number of the vector's
-                  // array.
-  public:
-    VectIter(Vector& x);
- 
-    int operator++();
-    //PROMISES: increments the iterator's indes and return the 
-    //          value of the element at the index position. If
-    //          index exceeds the size of the array it will 
-    //          be set to zero. Which means it will be circulated
-    //          back to the first element of the vector.
-
-    int  operator++(int);
-    // PRIMISES: returns the value of the element at the index
-    //           position, then increments the index. If
-    //           index exceeds the size of the array it will 
-    //           be set to zero. Which means it will be circulated
-    //           back to the first element of the vector.
-
-    int  operator--();
-    // PROMISES: decrements the iterator index, and return the
-    //           the value of the element at the index. If
-    //           index is less than zero it will be set to the 
-    //           last element in the aray. Which means it will be
-    //           circulated to the last element of the vector.
-
-    int  operator--(int);
-    // PRIMISES: returns the value of the element at the index
-    //           position, then decrements the index. If
-    //           index is less than zero it will be set to the 
-    //           last element in the aray. Which means it will be
-    //           circulated to the last element of the vector.
-
-    int operator *();
-    // PRIMISES: returns the value of the element at the current 
-    //           index position.
-  };
-
-  Vector(int sz); 
-  ~Vector();
-
-  int & operator[](int i);
-  // PRIMISES: returns existing value in the ith element of 
-  //           array or sets a new value to  the ith element in
-  //           array. 
-  
-	void ascending_sort();
-  // PRIMISES: sorts the vector values in ascending order. 
-	
-private:
-  int *array;               // points to the first element of an array of T
-  int size;               // size of array
-  void swap(int&, int &); // swaps the values of two elements in array
 public:
+	class VectIter {
+		friend class Vector;
+	private:
+		Vector* v; // points to a vector object of type T
+		int index; // represents the subscript number of the vector's array.
+	public:
+		VectIter(Vector& x);
+
+		int operator++();
+		// PROMISES: increments the iterator's index and return the 
+		// value of the element at the index position. If
+		// index exceeds the size of the array it will 
+		// be set to zero. Which means it will be circulated
+		// back to the first element of the vector.
+
+		int operator++(int);
+		// PROMISES: returns the value of the element at the index
+		// position, then increments the index. If
+		// index exceeds the size of the array it will 
+		// be set to zero. Which means it will be circulated
+		// back to the first element of the vector.
+
+		int operator--();
+		// PROMISES: decrements the iterator index, and return the
+		// value of the element at the index. If
+		// index is less than zero it will be set to the 
+		// last element in the array. Which means it will be
+		// circulated to the last element of the vector.
+
+		int operator--(int);
+		// PROMISES: returns the value of the element at the index
+		// position, then decrements the index. If
+		// index is less than zero it will be set to the 
+		// last element in the array. Which means it will be
+		// circulated to the last element of the vector.
+
+		int operator*();
+		// PROMISES: returns the value of the element at the current 
+		// index position.
+	};
+
+	Vector(int sz);
+	~Vector();
+
+	int& operator[](int i);
+	// PROMISES: returns existing value in the ith element of 
+	// array or sets a new value to the ith element in
+	// array. 
+
+	void ascending_sort();
+	// PROMISES: sorts the vector values in ascending order. 
+
+private:
+	int* array;             // points to the first element of an array of T
+	int size;               // size of array
+	void swap(int&, int&);  // swaps the values of two elements in array
 };
 
+/***********************************************************************
+ *
+ *								VectIter
+ *
+ ***********************************************************************/
 
-void Vector::ascending_sort()
-{
-	for(int i=0; i< size-1; i++)
-		for(int j=i+1; j < size; j++)
-			if(array[i] > array[j])
+Vector::VectIter::VectIter(Vector& x) {
+	v = &x;
+	index = 0;
+}
+
+int Vector::VectIter::operator*() {
+	return v->array[index];
+}
+
+int Vector::VectIter::operator++() {
+	index++; 
+
+	if (index >= v->size) {
+		index = 0; 
+	}
+
+	return v->array[index]; 
+}
+
+int Vector::VectIter::operator++(int) {
+	int ret = v->array[index]; 
+	index++;
+
+	if (index >= v->size) {
+		index = 0;
+	}
+
+	return ret;
+}
+
+int Vector::VectIter::operator--(int) {
+	int ret = v->array[index];
+	index--;
+
+	if (index < 0) {
+		index = v->size-1;
+	}
+
+	return ret;
+}
+
+/***********************************************************************
+ *
+ *								Vector
+ *
+ ***********************************************************************/
+
+void Vector::ascending_sort() {
+	for (int i = 0; i < size - 1; i++)
+		for (int j = i + 1; j < size; j++)
+			if (array[i] > array[j])
 				swap(array[i], array[j]);
 }
 
-void Vector::swap(int& a, int& b)
-{
+void Vector::swap(int& a, int& b) {
 	int tmp = a;
 	a = b;
 	b = tmp;
 }
 
-int Vector::VectIter::operator *()
-{
-  return v -> array[index];
+Vector::Vector(int sz) {
+	size = sz;
+	array = new int[sz];
+	assert(array != NULL);
 }
 
-
-Vector::VectIter::VectIter(Vector& x)
-{
-  v = &x;
-  index = 0;
+Vector::~Vector() {
+	delete[] array;
+	array = NULL;
 }
 
-
-
-Vector::Vector(int sz)
-{
-  size=sz;
-  array = new int [sz];
-  assert (array != NULL);
+int& Vector::operator[](int i) {
+	return array[i];
 }
 
+/***********************************************************************
+ *
+ *								  Main
+ *
+ ***********************************************************************/
 
-Vector::~Vector()
-{
-  delete [] array;
-  array = NULL;
-}
+int main() {
+	Vector x(3);
+	x[0] = 999;
+	x[1] = -77;
+	x[2] = 88;
 
+	Vector::VectIter iter(x);
 
+	cout << "\n\nThe first element of vector x contains: " << *iter <<endl; 
 
-int & Vector ::operator [] (int i)
-{
-  return array[i];
-}
+	#if 1
+		cout << "\nTesting an <int> Vector: " << endl;
+	
+		cout << "\nTesting sort";
+		x.ascending_sort();
 
+		cout << "\n\ntesting postfix ++";
+		for (int i=0; i<3 ; i++)
+			cout << endl << iter++;
 
-int main()
-{
-
- Vector x(3);
- x[0] = 999;
- x[1] = -77;
- x[2] = 88;
-
- Vector::VectIter iter(x);
-
- cout << "\n\nThe first element of vector x contains: " << *iter; 
-
- // the code between the  #if 0 and #endif is ignored by
- // compiler. If you change it to #if 1, it will be compiled
- 
-#if 0
-	cout << "\nTesting an <int> Vector: " << endl;
+		//cout << "\n\nTesting Prefix --:";
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << --iter;
 	
-	cout << "\n\nTesting sort";
-	x.ascending_sort();
+		cout << "\n\nTesting Prefix ++:";
+		for (int i=0; i<3 ; i++)
+			cout << endl << ++iter;	
 	
-	for (int i=0; i<3 ; i++)
-		cout << endl << iter++;
+		cout << "\n\ntesting postfix --";
+		for (int i=0; i<3 ; i++)
+			cout << endl << iter--;
 	
-	cout << "\n\nTesting Prefix --:";
-	for (int i=0; i<3 ; i++)
-		cout << endl << --iter;
+		//cout << endl;
 	
-	cout << "\n\nTesting Prefix ++:";
-	for (int i=0; i<3 ; i++)
-		cout << endl << ++iter;	
+		//cout << "Testing a <Mystring> Vector: " << endl;
+		//Vector<Mystring> y(3);
+		//y[0] = "Bar";
+		//y[1] = "Foo";
+		//y[2] = "All";;
 	
-	cout << "\n\nTesting Postfix --";
-	for (int i=0; i<3 ; i++)
-		cout << endl << iter--;
+		//Vector<Mystring>::VectIter iters(y);
 	
-	cout << endl;
+		//cout << "\n\nTesting sort";
+		//y.ascending_sort();
 	
-	cout << "Testing a <Mystring> Vector: " << endl;
-	Vector<Mystring> y(3);
-	y[0] = "Bar";
-	y[1] = "Foo";
-	y[2] = "All";;
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << iters++;
 	
-	Vector<Mystring>::VectIter iters(y);
+		//cout << "\n\nTesting Prefix --:";
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << --iters;
 	
-	cout << "\n\nTesting sort";
-	y.ascending_sort();
+		//cout << "\n\nTesting Prefix ++:";
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << ++iters;
 	
-	for (int i=0; i<3 ; i++)
-		cout << endl << iters++;
+		//cout << "\n\nTesting Postfix --";
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << iters--;
 	
-	cout << "\n\nTesting Prefix --:";
-	for (int i=0; i<3 ; i++)
-		cout << endl << --iters;
+		//cout << endl; cout << "Testing a <char *> Vector: " << endl;
+		//Vector<const char*> z(3);
+		//z[0] = "Orange";
+		//z[1] = "Pear";
+		//z[2] = "Apple";;
 	
-	cout << "\n\nTesting Prefix ++:";
-	for (int i=0; i<3 ; i++)
-		cout << endl << ++iters;
+		//Vector<const char*>::VectIter iterchar(z);
 	
-	cout << "\n\nTesting Postfix --";
-	for (int i=0; i<3 ; i++)
-		cout << endl << iters--;
+		//cout << "\n\nTesting sort";
+		//z.ascending_sort();
 	
-	cout << endl; cout << "Testing a <char *> Vector: " << endl;
-	Vector<const char*> z(3);
-	z[0] = "Orange";
-	z[1] = "Pear";
-	z[2] = "Apple";;
+		//for (int i=0; i<3 ; i++)
+		//	cout << endl << iterchar++;
 	
-	Vector<const char*>::VectIter iterchar(z);
-	
-	cout << "\n\nTesting sort";
-	z.ascending_sort();
-	
-	for (int i=0; i<3 ; i++)
-		cout << endl << iterchar++;
-	
-#endif
-	cout << "\nPrgram Terminated Successfully." << endl;
+	#endif
+		cout << "\n\nProgram Terminated Successfully." << endl;
 	
 	return 0;
 }

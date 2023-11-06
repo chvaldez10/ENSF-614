@@ -38,7 +38,7 @@ class Mystring {
   // Return value is char at position pos.
   // (The first char in the charsM is at position 0.)
 
-  const char * c_str() const;
+  const char* c_str() const;
   // PROMISES:
   //   Return value points to first char in built-in string
   //   containing the chars of the string object.
@@ -54,7 +54,7 @@ class Mystring {
   //          other.charsM points to XYZ, extends charsM to "ABCXYZ".
   //
 
-  void set_str(char* s);
+  void set_str(const char* s);
   // REQUIRES: s is a valid C++ string of characters (a built-in string)
   // PROMISES:copys s into charsM, if the length of s is less than or equal lengthM.
   //          Othrewise, extends the size of the charsM to s.lengthM+1, and copies 
