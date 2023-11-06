@@ -39,11 +39,27 @@ public class DemoStrategyPattern {
 			v2.add(item);
 			}
 
-	        System.out.println("\nThe original values in v2 object are:");
-			v2.display();
-			v2.setSortStrategy(new InsertionSorter<Integer>());;
-			v2.performSort();
-	        System.out.println("\nThe values in MyVector object v2 after performing InsertionSorter is:");
-			v2.display();
+        System.out.println("\nThe original values in v2 object are:");
+        v2.display();
+        v2.setSortStrategy(new InsertionSorter<Integer>());;
+        v2.performSort();
+        System.out.println("\nThe values in MyVector object v2 after performing InsertionSorter is:");
+        v2.display();
+
+        // Create an object of MyVector<Double> with capacity of 50 elements
+        MyVector<Double> v3 = new MyVector<Double> (50);
+
+        for(int i = 4; i >=0; i--) {
+            Item<Double> item;
+            item = new Item<Double> (Double.valueOf(rand.nextDouble()*100));
+            v3.add(item);
+        }
+
+        System.out.println("The original values in v3 object are:");
+        v3.display();
+        v3.setSortStrategy(new BubbleSorter<Double>());
+        v3.performSort();
+        System.out.println("\nThe values in MyVector object v3 after performing SelectionSorter is:");
+        v3.display();
 	}
 }
