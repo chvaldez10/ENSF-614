@@ -101,6 +101,14 @@ void Vector<Mystring>::ascending_sort() {
 				swap(array[i], array[j]);
 }
 
+template <>
+void Vector<const char*>::ascending_sort() {
+	for (int i = 0; i < size - 1; i++)
+		for (int j = i + 1; j < size; j++)
+			if (strcmp(array[i], array[j]) > 0)
+				swap(array[i], array[j]);
+}
+
 template <class T>
 void Vector<T>::swap(T& a, T& b) {
 	T tmp = a;
@@ -224,19 +232,21 @@ int main() {
 		for (int i=0; i<3 ; i++)
 			cout << endl << iters--.c_str();
 	
-		//cout << endl; cout << "Testing a <char *> Vector: " << endl;
-		//Vector<const char*> z(3);
-		//z[0] = "Orange";
-		//z[1] = "Pear";
-		//z[2] = "Apple";;
+		cout << endl << endl;
+		
+		cout << "Testing a <const char*> Vector: " << endl;
+		Vector<const char*> z(3);
+		z[0] = "Orange";
+		z[1] = "Pear";
+		z[2] = "Apple";;
 	
-		//Vector<const char*>::VectIter iterchar(z);
+		Vector<const char*>::VectIter iterchar(z);
 	
-		//cout << "\n\nTesting sort";
-		//z.ascending_sort();
+		cout << "\nTesting sort";
+		z.ascending_sort();
 	
-		//for (int i=0; i<3 ; i++)
-		//	cout << endl << iterchar++;
+		for (int i=0; i<3 ; i++)
+			cout << endl << iterchar++;
 	
 	#endif
 		cout << "\n\nProgram Terminated Successfully." << endl;
