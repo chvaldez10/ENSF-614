@@ -17,16 +17,17 @@ Lab 6: Friday before 11:59 PM.
     - 📁 **lab2** (worked with Redge)
     - 📁 **lab3** (worked with Alton)
     - 📁 **lab5** (worked with Carissa)
-    - 📁 **lab6** (working with Braden)
-      - 📁 **base** (cpp and header files to hand in)
+    - 📁 **lab6**
+      - 📁 **base** (files to hand in)
         - 📁 **exA**
         - 📁 **exB**
         - 📁 **exC**
         - 📁 **exD**
         - 📁 **exE**
         - 📁 **exF**
-      - 📁 **lab6** (VS Project)
-      - 📝 **documents** (report in here)
+      - 📁 **lab6** (VS)
+      - 📁 **lab6-java** (IntelliJ)
+      - 📝 **documents** (report)
   - 📁 **template**
   - 📁 **Playground**
     - 📁 **Christian**
