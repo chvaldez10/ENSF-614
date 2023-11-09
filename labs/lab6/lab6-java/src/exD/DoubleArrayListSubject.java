@@ -26,8 +26,8 @@ public class DoubleArrayListSubject {
         notifyObserver();
     }
 
-    public void setData(int index, double value) {
-        data.set(index, value);
+    public void setData(double value, int i) {
+        data.set(i, value);
         notifyObserver();
     }
 

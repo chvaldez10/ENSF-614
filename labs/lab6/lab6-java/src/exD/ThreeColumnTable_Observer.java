@@ -19,10 +19,10 @@ public class ThreeColumnTable_Observer implements Observer {
 
     public void display() {
         for (int i = 0; i < data.size(); i++) {
+            System.out.print(data.get(i) + " ");
             if ((i+1)%3==0){
                 System.out.println();
             }
-            System.out.print(data.get(i) + " ");
         }
         System.out.println("\n");
     }
