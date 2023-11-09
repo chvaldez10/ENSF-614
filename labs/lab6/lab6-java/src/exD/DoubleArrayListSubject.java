@@ -2,11 +2,11 @@ package exD;
 
 import java.util.ArrayList;
 
-public class DoubleArrayList {
+public class DoubleArrayListSubject {
     private ArrayList<Observer> observers;
     private ArrayList<Double> data;
 
-    public DoubleArrayList() {
+    public DoubleArrayListSubject() {
         observers = new ArrayList<>();
         data = new ArrayList<>();
     }
@@ -31,7 +31,7 @@ public class DoubleArrayList {
         notifyObserver();
     }
 
-    public void populate(ArrayList<Double> arr) {
+    public void populate(double[] arr) {
         data = new ArrayList<Double>();
         for(double d : arr) {
             addData(d);
@@ -44,5 +44,9 @@ public class DoubleArrayList {
             Observer o = observers.get(i);
             o.update(data);
         }
+    }
+
+    public void display() {
+        System.out.println("Empty list ...");
     }
 }
