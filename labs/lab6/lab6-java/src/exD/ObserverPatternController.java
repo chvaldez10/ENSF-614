@@ -11,9 +11,9 @@ public class ObserverPatternController {
 		System.out.println("mydata object is populated with: 10, 20, 33, 44, 50, 30, 60, 70, 80, 10, 11, 23, 34, 55 ");
 		System.out.print("Now, creating three observer objects: ht, vt, and hl ");
 		System.out.println("\nWhich are immediately notified of existing data with different views.");
-//		ThreeColumnTable_Observer ht = new ThreeColumnTable_Observer(mydata);
+		ThreeColumnTable_Observer ht = new ThreeColumnTable_Observer(mydata);
 		FiveRowsTable_Observer vt = new FiveRowsTable_Observer(mydata);
-//		OneRow_Observer hl = new OneRow_Observer(mydata);
+		OneRow_Observer hl = new OneRow_Observer(mydata);
 //		System.out.println("\n\nChanging the third value from 33, to 66 -- (All views must show this change):");
 //		mydata.setData(66.0, 2);
 //		System.out.println("\n\nAdding a new value to the end of the list -- (All views must show this change)");

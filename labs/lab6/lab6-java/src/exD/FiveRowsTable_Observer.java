@@ -29,5 +29,6 @@ public class FiveRowsTable_Observer implements Observer{
             }
             System.out.println();
         }
+        System.out.println();
     }
 }

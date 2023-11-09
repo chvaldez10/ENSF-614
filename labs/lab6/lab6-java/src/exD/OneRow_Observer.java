@@ -2,11 +2,11 @@ package exD;
 
 import java.util.ArrayList;
 
-public class ThreeColumnTable_Observer implements Observer {
+public class OneRow_Observer implements Observer{
     DoubleArrayListSubject doubleArrayList;
     ArrayList<Double> data;
 
-    public ThreeColumnTable_Observer(DoubleArrayListSubject d) {
+    public OneRow_Observer(DoubleArrayListSubject d) {
         doubleArrayList = d;
         doubleArrayList.register(this);
     }
@@ -18,12 +18,10 @@ public class ThreeColumnTable_Observer implements Observer {
     }
 
     public void display() {
-        for (int i = 0; i < data.size(); i++) {
-            if ((i+1)%3==0){
-                System.out.println();
-            }
-            System.out.print(data.get(i) + " ");
+        for (double d : data) {
+            System.out.print(d + " ");
         }
         System.out.println("\n");
     }
+
 }
