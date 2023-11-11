@@ -1,7 +1,7 @@
 /**
  
 Filename.java
-ENSF 614 Fall 2023 LAB 6 - EXERCISE B and C
+ENSF 614 Fall 2023 LAB 6 - EXERCISE D
 @authors Braden Tink and Christian Valdez
 Submitted On: Nov 11, 2023
 */
