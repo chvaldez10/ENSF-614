@@ -20,11 +20,7 @@ Lab 6: Sunday before 11:59 PM.
     - 📁 **lab6** (worked with Braden)
       - 📁 **base** (files to hand in)
         - 📁 **exA**
-        - 📁 **exB**
-        - 📁 **exC**
-        - 📁 **exD**
-        - 📁 **exE**
-        - 📁 **exF**
+        - 📁 **exG**
       - 📁 **lab6** (VS)
       - 📁 **lab6-java** (IntelliJ)
       - 📝 **documents** (report)
