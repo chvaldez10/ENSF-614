@@ -1,11 +1,15 @@
 /**
- 
-Filename.java
-ENSF 614 Fall 2023 LAB 6 - EXERCISE D
-@authors Braden Tink and Christian Valdez
-Submitted On: Nov 11, 2023
+* ObserverPattern.java
+* ENSF 614 Fall 2023 LAB 6 - EXERCISE D
+* @authors Braden Tink and Christian Valdez
+* Submitted On: Nov 11, 2023
 */
 
+/**
+ * ObserverPatternController has one function being the main function
+* @authors Braden Tink and Christian Valdez
+ *
+ */
 public class ObserverPatternController {
  	public static void main(String []s) {
 		double [] arr = {10, 20, 33, 44, 50, 30, 60, 70, 80, 10, 11, 23, 34, 55};
