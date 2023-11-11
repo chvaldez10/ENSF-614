@@ -2,7 +2,7 @@ package exE;
 
 import java.awt.*;
 
-public abstract class Text implements Component{
+public class Text implements Component{
     protected int x;
     protected int y;
     String text;
@@ -15,6 +15,6 @@ public abstract class Text implements Component{
 
     @Override
     public void draw(Graphics g) {
-
+        g.drawString(text, x ,y);
     }
 }
