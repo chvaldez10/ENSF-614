@@ -1,6 +1,10 @@
-/* ENSF 614 - Lab 6
- * M. Moussavi
- */
+/**
+ 
+Filename.java
+ENSF 614 Fall 2023 LAB 6 - EXERCISE B and C
+@authors Braden Tink and Christian Valdez
+Submitted On: Nov 11, 2023
+*/
 
 public class ObserverPatternController {
  	public static void main(String []s) {
