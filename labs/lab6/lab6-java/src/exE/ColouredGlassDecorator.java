@@ -1,7 +1,21 @@
 package exE;
 import java.awt.*;
 
-public class ColouredGlassDecorator extends Decorator{
+/**
+ * ColouredGlassDecorator is a concrete decorator that adds a colored glass effect.
+ * It overlays a translucent green rectangle on top of the component.
+ */
+public class ColouredGlassDecorator extends Decorator {
+
+    /**
+     * Constructs a ColouredGlassDecorator with specified dimensions.
+     *
+     * @param cmp    the Component to be decorated
+     * @param x      the X-coordinate position of the glass overlay
+     * @param y      the Y-coordinate position of the glass overlay
+     * @param width  the width of the glass overlay
+     * @param height the height of the glass overlay
+     */
     public ColouredGlassDecorator(Component cmp, int x, int y, int width, int height) {
         super(cmp);
         this.x = x;
@@ -10,19 +24,20 @@ public class ColouredGlassDecorator extends Decorator{
         this.height = height;
     }
 
+    /**
+     * Draws the decorated component with a green glass overlay.
+     *
+     * @param g the Graphics context for drawing
+     */
     @Override
     public void draw(Graphics g) {
-        // Set up the graphics context for drawing
         Graphics2D g2d = (Graphics2D) g.create();
-
-        // Draw the green background
-        g2d.setColor(Color.GREEN); // Solid green color
-        g2d.fillRect(x, y, width, height); // Fill a rectangle with the green color
-
-        // Draw the component on top of the green background
-        cmp.draw(g);
-
-        // Clean up the graphics context
-        g2d.dispose();
+        try {
+            g2d.setColor(Color.GREEN);
+            g2d.fillRect(x, y, width, height);
+            cmp.draw(g);
+        } finally {
+            g2d.dispose();
+        }
     }
 }
