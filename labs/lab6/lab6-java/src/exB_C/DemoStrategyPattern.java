@@ -1,3 +1,11 @@
+/**
+ * DemoStrategy.java
+ * ENSF 614 Fall 2023 LAB 6 - EXERCISE B and C
+ * @authors Braden Tink and Christian Valdez
+ * Submitted On: Nov 11, 2023
+ */
+
+
 package exB_C;
 import java.util.Random;
 
@@ -26,7 +34,7 @@ public class DemoStrategyPattern {
 		// perform algorithm bubble sort to v1
 		v1.performSort();
 
-        System.out.println("\nThe values in MyVector object v1 after performing BoubleSorter is:");
+        System.out.println("\nThe values in MyVector object v1 after performing BubbleSorter is:");
 		v1.display();
 
 		// create a MyVector<Integer> object V2
@@ -47,17 +55,18 @@ public class DemoStrategyPattern {
         v2.display();
 
         // Create an object of MyVector<Double> with capacity of 50 elements
-        MyVector<Double> v3 = new MyVector<Double> (50);
+        MyVector<Integer> v3 = new MyVector<Integer> (50);
 
+        // populate v2 with 5 randomly generated numbers
         for(int i = 4; i >=0; i--) {
-            Item<Double> item;
-            item = new Item<Double> (Double.valueOf(rand.nextDouble()*100));
+            Item<Integer> item;
+            item = new Item<Integer> (Integer.valueOf(rand.nextInt(50)));
             v3.add(item);
         }
 
-        System.out.println("The original values in v3 object are:");
+        System.out.println("\nThe original values in v3 object are:");
         v3.display();
-        v3.setSortStrategy(new BubbleSorter<Double>());
+        v3.setSortStrategy(new BubbleSorter<Integer>());
         v3.performSort();
         System.out.println("\nThe values in MyVector object v3 after performing SelectionSorter is:");
         v3.display();
