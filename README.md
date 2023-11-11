@@ -15,7 +15,6 @@ This repo is for ENSF 614 labs.
         - 📁 **exB_C**
         - 📁 **exD**
         - 📁 **exE_F**
-        - 📁 **exG**
       - 📁 **lab6** (VS)
       - 📁 **lab6-java** (IntelliJ)
       - 📝 **documents** (report)
