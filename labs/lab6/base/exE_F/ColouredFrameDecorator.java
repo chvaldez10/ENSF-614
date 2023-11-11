@@ -1,44 +1,51 @@
 /**
- 
-Filename.java
-ENSF 614 Fall 2023 LAB 6 - EXERCISE E and F
-@authors Braden Tink and Christian Valdez
-Submitted On: Nov 11, 2023
-*/
+ * Text.java
+ * ENSF 614 Fall 2023 LAB 6 - EXERCISE E and F
+ * @authors Braden Tink and Christian Valdez
+ * Submitted On: Nov 11, 2023
+ */
+import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
 
-public class ColouredFrameDecorator extends Decorator{
-	public int thickness;
-	Color red = Color.RED;
+/**
+ * Text Class which implements the component class
+ * @authors Braden Tink and Christian Valdez
+ * Class has four class variables 
+ *
+ */
+public class Text implements Component {
+	private Component component;
 	
-	public ColouredFrameDecorator(Component cmp) {
-	    	super(cmp);
+	private int x; 
+	private int y;
+	private String text;
+	/**
+	 * Text constructor passing in three values setting the 
+	 * class variables 
+	 * @param string
+	 * @param i
+	 * @param j
+	 */
+	public Text(String string, int i, int j) {
+		// TODO Auto-generated constructor stub
+		
+		x = i;
+		y = j;
+		text = string;
 	}
-	  
-	public ColouredFrameDecorator(Component component, int i, int j, int k, int l, int m) {
-		super(component, i, j, k, l);
-		thickness = m;
-	}
 	
-	
-	
+	/**
+	 * Draw function is an override function from the component class
+	 * 
+	 * One argument is being passed being the graphic 
+	 * 
+	 * Another dimension is added to the graphic 
+	 */
 	@Override
-    public void draw(Graphics g) {
-        // Add border drawing behavior before calling the decorated component's draw method
-        // You can customize the behavior here
-		super.draw(g);
-		g.setColor(red);
-		Graphics2D g2d = (Graphics2D) g;
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
 		
-		
-		g2d.setStroke(new BasicStroke(thickness));	
-		g2d.setColor(red);
-		g2d.drawRect(getX(), getY(), getWidth(), getHeight());
-		
-		
-    }
+		g.drawString(text, x, y);
+	}
 
 }
