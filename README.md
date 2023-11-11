@@ -2,14 +2,6 @@
 
 This repo is for ENSF 614 labs.
 
-## Outstanding Tasks
-
-- ENSF 614 Lab 6 report 📥
-
-## Deadlines 📅:
-
-Lab 6: Sunday before 11:59 PM.
-
 ## Folder Structure
 
 - 📁 **ENSF-614** (root folder)
@@ -18,7 +10,7 @@ Lab 6: Sunday before 11:59 PM.
     - 📁 **lab3** (worked with Alton)
     - 📁 **lab5** (worked with Carissa)
     - 📁 **lab6** (worked with Braden)
-      - 📁 **base** (files to hand in)
+      - 📁 **base** (C++ files to submit)
         - 📁 **exA**
         - 📁 **exG**
       - 📁 **lab6** (VS)
