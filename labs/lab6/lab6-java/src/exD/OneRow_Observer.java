@@ -8,7 +8,7 @@ public class OneRow_Observer implements Observer{
 
     public OneRow_Observer(DoubleArrayListSubject d) {
         doubleArrayList = d;
-        doubleArrayList.register(this);
+        doubleArrayList.registerObserver(this);
     }
 
     @Override

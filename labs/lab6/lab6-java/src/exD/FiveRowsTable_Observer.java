@@ -8,7 +8,7 @@ public class FiveRowsTable_Observer implements Observer{
 
     public FiveRowsTable_Observer(DoubleArrayListSubject d) {
         doubleArrayList = d;
-        doubleArrayList.register(this);
+        doubleArrayList.registerObserver(this);
     }
 
     @Override

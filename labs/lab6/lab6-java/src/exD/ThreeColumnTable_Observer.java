@@ -8,7 +8,7 @@ public class ThreeColumnTable_Observer implements Observer {
 
     public ThreeColumnTable_Observer(DoubleArrayListSubject d) {
         doubleArrayList = d;
-        doubleArrayList.register(this);
+        doubleArrayList.registerObserver(this);
     }
 
     @Override

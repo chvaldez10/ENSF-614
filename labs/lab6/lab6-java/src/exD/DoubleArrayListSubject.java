@@ -11,13 +11,13 @@ public class DoubleArrayListSubject {
         data = new ArrayList<>();
     }
 
-    public void register(Observer o) {
+    public void registerObserver(Observer o) {
         observers.add(o);
         o.update(data);
     }
 
 
-    public void remove(Observer o) {
+    public void removeObserver(Observer o) {
         observers.remove(o);
     }
 
