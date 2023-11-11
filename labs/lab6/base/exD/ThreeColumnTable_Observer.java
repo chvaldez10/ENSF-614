@@ -1,24 +1,37 @@
 /**
- 
-Filename.java
-ENSF 614 Fall 2023 LAB 6 - EXERCISE D
-@authors Braden Tink and Christian Valdez
-Submitted On: Nov 11, 2023
+* FiveColumnTable_Observer.java
+* ENSF 614 Fall 2023 LAB 6 - EXERCISE D
+* @authors Braden Tink and Christian Valdez
+* Submitted On: Nov 11, 2023
 */
+
+
 import java.util.ArrayList;
 
-public class ThreeColumnTable_Observer implements Observer {
+/**
+ * FiveRowsTable_Observer implements observer 
+* @authors Braden Tink and Christian Valdez
+ * Class has one class variable of type subject 
+ *
+ */
+public class FiveRowsTable_Observer implements Observer{	
 	Subject table;
 	
-	
-	public ThreeColumnTable_Observer(Subject tbl) {
+	/**
+	 * Constructor take in one argument of type subject which sets
+	 * the local subject variable 
+	 * @param tbl
+	 */
+	public FiveRowsTable_Observer(Subject tbl) {
 		// TODO Auto-generated constructor stub
 		this.table = tbl;
 		table.register(this);
 	}
 
-	
-	
+	/**
+	 * Update function takes in a data array 
+	 * Function then calls display passing in the data object 
+	 */	
 	@Override
 	public void update(ArrayList<Double> data) {
 		// TODO Auto-generated method stub
@@ -26,22 +39,27 @@ public class ThreeColumnTable_Observer implements Observer {
 	}
 	
 	
-
+	/**
+	 * Display function takes in one argument being the data array
+	 * Then displays the data of that array 
+	 * @param data
+	 */
 	public void display(ArrayList<Double> data) {
-		System.out.println("\nNotification to Three-Column Table Observer: Data Changed:");
+		System.out.println("\nNotification to Five-Column Table Observer: Data Changed:");
 		int size = data.size();
+		int numRows = 5;
+		int numColumns = 5;
 		
-		for(int i = 0; i < size;i++){
-			
-			
-			if((i % 3) == 0 && i != 0) {
-				System.out.print("\n");
-			}
-			System.out.print(data.get(i) + " ");
+		for (int i = 0; i < numRows; i++) {
+		    for (int j = 0; j < numColumns; j++) {
+		        int index = j * numRows + i;
+		        if (index < data.size()) {
+		            System.out.print(data.get(index) + " ");
+		        }
+		    }
+		    System.out.println(); // Move to the next row
 		}
-		System.out.println();
 		
 	}
 
-	
 }
