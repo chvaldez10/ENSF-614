@@ -1,6 +1,6 @@
 # ENSF-614
 
-This repo is for ENSF 614 course materials.
+This repo is for ENSF 614 labs.
 
 ## Outstanding Tasks
 
@@ -8,7 +8,7 @@ This repo is for ENSF 614 course materials.
 
 ## Deadlines 📅:
 
-Lab 6: Friday before 11:59 PM.
+Lab 6: Sunday before 11:59 PM.
 
 ## Folder Structure
 
@@ -17,7 +17,7 @@ Lab 6: Friday before 11:59 PM.
     - 📁 **lab2** (worked with Redge)
     - 📁 **lab3** (worked with Alton)
     - 📁 **lab5** (worked with Carissa)
-    - 📁 **lab6**
+    - 📁 **lab6** (worked with Braden)
       - 📁 **base** (files to hand in)
         - 📁 **exA**
         - 📁 **exB**
@@ -29,7 +29,8 @@ Lab 6: Friday before 11:59 PM.
       - 📁 **lab6-java** (IntelliJ)
       - 📝 **documents** (report)
   - 📁 **template**
-  - 📁 **Playground**
-    - 📁 **Christian**
+  - 📁 **playground** (personal folders)
+    - 📁 **lab1**
+    - 📁 **lab4**
   - 📄 .gitignore
   - 📄 README.md
