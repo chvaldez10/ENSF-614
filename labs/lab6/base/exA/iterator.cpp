@@ -1,5 +1,7 @@
 // iterator.cpp
-// ENSF 614 - Fall 2022 - Lab 6, Ex A
+// ENSF 614 Fall 2023 LAB 6 - EXERCISE A
+// Created By: Braden Tink and Christian Valdez
+// Submitted On: Nov 11, 2023
 
 #include <iostream>
 #include <assert.h>
@@ -253,15 +255,3 @@ int main() {
 	
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
