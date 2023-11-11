@@ -1,5 +1,12 @@
 import java.awt.Font;
 import java.awt.Graphics;
+/**
+ 
+Filename.java
+ENSF 614 Fall 2023 LAB 6 - EXERCISE E and F
+@authors Braden Tink and Christian Valdez
+Submitted On: Nov 11, 2023
+*/
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -10,6 +17,9 @@ public class DemoDecoratorPattern extends JPanel {
    	 t = new Text ("Hello World", 60, 80); 
    }
 	
+
+	
+//Part E paint Component 	
 //    public void paintComponent(Graphics g){
 // 	    int fontSize = 10;
 // 	    g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
@@ -24,6 +34,8 @@ public class DemoDecoratorPattern extends JPanel {
 // 	    // Now lets draw the product on the screen 	 
 // 	    t.draw(g);
 //    }
+
+// Part F paint Component
     public void paintComponent(Graphics g){
     	int fontSize = 10;
     	g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
