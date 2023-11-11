@@ -10,8 +10,11 @@ This repo is for ENSF 614 labs.
     - 📁 **lab3** (worked with Alton)
     - 📁 **lab5** (worked with Carissa)
     - 📁 **lab6** (worked with Braden)
-      - 📁 **base** (C++ files to submit)
+      - 📁 **base** (files to submit)
         - 📁 **exA**
+        - 📁 **exB_C**
+        - 📁 **exD**
+        - 📁 **exE_F**
         - 📁 **exG**
       - 📁 **lab6** (VS)
       - 📁 **lab6-java** (IntelliJ)
