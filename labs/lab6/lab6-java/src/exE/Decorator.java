@@ -1,0 +1,13 @@
+package exE;
+
+public abstract class Decorator implements Component{
+    private Component cmp;
+    protected int x;
+    protected int y;
+    protected int width;
+    public int height;
+
+    public Decorator(Component cmp) {
+        this.cmp = cmp;
+    }
+}
