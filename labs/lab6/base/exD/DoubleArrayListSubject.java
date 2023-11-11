@@ -26,7 +26,6 @@ public class DoubleArrayListSubject implements Subject{
 	
 	public void remove(Observer o) {
 		observers.remove(o);
-		notifyObservers();
 		
 	}
 	public void notifyObservers() {
