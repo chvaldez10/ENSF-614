@@ -1,26 +1,19 @@
-# ENSF-614
+# ENSF-614 📚🤝
 
-This repo is for ENSF 614 labs.
+Welcome to the Study Kr3w repository! This space is all about nurturing collaboration and sharing a wealth of code and resources among our group of friends.
 
-## Folder Structure
+## 🗂️ Folder Structure
 
-- 📁 **ENSF-614** (root folder)
-  - 📁 **labs** (shared folder)
-    - 📁 **lab2** (worked with Redge)
-    - 📁 **lab3** (worked with Alton)
-    - 📁 **lab5** (worked with Carissa)
-    - 📁 **lab6** (worked with Braden)
-      - 📁 **base** (files to submit)
-        - 📁 **exA**
-        - 📁 **exB_C**
-        - 📁 **exD**
-        - 📁 **exE_F**
-      - 📁 **lab6** (VS)
-      - 📁 **lab6-java** (IntelliJ)
-      - 📝 **documents** (report)
-  - 📁 **template**
-  - 📁 **playground** (personal folders)
-    - 📁 **lab1**
-    - 📁 **lab4**
-  - 📄 .gitignore
-  - 📄 README.md
+Here's how we've organized our repository to ensure easy navigation and efficient collaboration:
+
+- 📁 **ENSF-614**
+  - 📁 **Labs**
+    - 📁 **Lab 2**
+    - 📁 **Lab 3**
+    - 📁 **Lab 5**
+    - 📁 **Lab 6**
+  - 📁 **Playground**
+    - 📁 **Lab 1**
+    - 📁 **Lab 4**
+  - 📄 **.gitignore**
+  - 📄 **README.md**
